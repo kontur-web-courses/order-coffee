@@ -1,3 +1,6 @@
+import Player from './Player.js';
+import PlayerView from './PlayerView.js';
+
 const Game = function() {
     function Game(bottomPlayerDeck, topPlayerDeck) {
         this.bottomPlayerStartDeck = bottomPlayerDeck;
@@ -128,3 +131,5 @@ const Game = function() {
 
     return Game;
 }();
+
+export default Game;

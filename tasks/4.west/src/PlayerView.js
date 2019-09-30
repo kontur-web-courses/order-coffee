@@ -1,3 +1,6 @@
+import SpeedRate from './SpeedRate.js';
+import TaskQueue from './TaskQueue.js';
+
 const PlayerView = function () {
     function PlayerView(playerRow, playerTable, inBottomRow) {
         this.inBottomRow = inBottomRow;
@@ -54,3 +57,5 @@ const PlayerView = function () {
 
     return PlayerView;
 }();
+
+export default PlayerView;

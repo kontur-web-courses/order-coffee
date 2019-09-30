@@ -51,3 +51,5 @@ const TaskQueue = function() {
 
     return TaskQueue;
 }();
+
+export default TaskQueue;

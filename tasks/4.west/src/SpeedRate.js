@@ -14,3 +14,5 @@ const SpeedRate = function() {
         get
     };
 }();
+
+export default SpeedRate;
