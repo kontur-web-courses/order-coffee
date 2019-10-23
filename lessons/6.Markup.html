@@ -120,23 +120,6 @@
 
 ***
 
-### Оффтопик
-
-<ul>
-<li class="fragment">Если бы браузер был один, то всего этого бы не было
-<li class="fragment">Что мы можем сделать, чтобы остался только один браузер? (и какой?)
-<li class="fragment">Хотим ли мы, чтобы браузер остался только один?
-</ul>
-
-***
-
-### Когда-то браузер был один...
-
-<a href="http://evolutionofweb.appspot.com/?hl=ru"><img src="assets/specs.png" alt="specs"></a>
-
-
-***
-
 ### Разные экраны
 
 <img src="assets/browser-diff/devices.png" />
@@ -168,143 +151,6 @@ border-radius: 15px; display: inline-block"></div>
 
 <img src="assets/browser-diff/awesome_css.png" alt="CSS is Awesome">
 
-
-</script></section>
-
-<section data-markdown><script type="text/template">
-
-
-## Шрифты
-
-***
-
-### Способы подключения шрифта на сайте
-
-- использовать дефолтные шрифты
-- выбрать что-то стандартное
-- надеяться, что у пользователя есть нужный нам шрифт
-- загрузить шрифт принудительно
-
-***
-
-### Использовать дефолтные шрифты
-
-- serif — с зачечками
-- sans-serif - без засечек
-- monospace - моноширинные
-- fantasy - странные
-- cursive - курсивные
-
-```css
-div {
-font-family: serif;
-}
-```
-
-***
-
-### Засечки
-
-<img src="assets/browser-diff/serif%20and%20sans-serif.png" alt="serif and sans0serif">
-
-
-***
-
-### Плюсы и минусы
-
-\+ не надо думать про шрифт вообще
-\+ дефолтные шрифты имеют хорошие показатели читаемости
-\+ сайт быстро рендерится (не нужно ждать загрузки шрифта)
-
-\- дефолтные шрифты обычно не очень красивые
-\- у всех пользователей сайт будет выглядеть по разному
-
-***
-
-### Выбрать что-то стандартное
-
-Arial, Helvetica, Times New Roman, Comic Sans (не выбирайте его, пожалуйста)
-
-Посмотреть на безопасные шрифты [тут](https://websitesetup.org/web-safe-fonts-html-css/)
-
-```css
-body {
-font-family: Arial, Helvetica, sans-serif;
-}
-```
-
-***
-
-### Плюсы и минусы
-
-\+ сайт быстро рендерится (не нужно ждать загрузки шрифта)
-\+ шрифт будет одинаковый у большинства пользователей
-\+ классические шрифты обычно имеют очень хорошую читаемость, именно поэтому они классические
-
-\- шрифт будет очень "обычный"
-
-***
-
-### Надеяться, что у пользователя есть нужный нам шрифт
-
-Контур так делает с шрифтом Segoe UI
-
-```css
-font-family: 'Segoe UI','Helvetica Neue',Arial,Tahoma,sans-serif;
-```
-
-***
-
-### Примеры того, как это выглядит
-
-Скриншоты с [Контур.Гайдов](https://guides.kontur.ru/principles/typography/)
-
-<div class="image-wrap"><div><h5>
-    MacOS (без Segoe)</h5><img src="assets/browser-diff/mac.png" alt="font"></div><div><h5>
-    Windows (с Segoe)</h5><img src="assets/browser-diff/win.png" alt="font"></div>
-</div>
-
-***
-
-### Плюсы и минусы
-
-\+ не нужна лиценизия на шрифт
-\+ если шрифт популярный, то у большинства он будет
-\+ сайт быстро рендерится (не нужно ждать загрузки шрифта)
-
-\- у некоторых пользователей шрифта не будет
-\- нужно думать, чем заменить шрифт для тех, у кого его нет
-
-***
-
-### Загрузить шрифт принудительно
-
-Это нужно, если:
-- у вас есть брендированный шрифт (например, Яндекс, Билайн)
-- какие-то элементы сайта, заголовки или логотип, используют какой-нибудь экзотический шрифт
-- у вас очень консервативные заказчики или дизайнер, которые хотят, чтобы сайт везде одинаково выглядел
-
-```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=cyrillic,latin">
-```
-или
-
-```css
-@font-face {
-font-family: "Lobster";
-src: local("Lobster"), url("lobster.woff") format("woff");
-}
-```
-
-***
-
-### Плюсы и минусы
-
-\+ с большой вероятностью, у всех пользователей шрифт будет выглядеть одинаково
-\+ позволяет больше творчества
-
-\- нужна лицензия на шрифт
-\- дольше загрузка сайта
 
 </script></section>
 
@@ -432,6 +278,49 @@ _@media_ — медиа-выражения, media queries
 - Доклад "[Introduction to accessibility mechanics](https://youtu.be/vWveRBWNVWI)" Leonie Watson с
 конференции Fronttalks
 - Эксперимент от Smashing Magazine "[I Used The Web For A Day With Just A Keyboard](https://www.smashingmagazine.com/2018/07/web-with-just-a-keyboard/)"
+
+</script></section>
+
+<section data-markdown><script type="text/template">
+
+
+## Шрифты
+
+***
+
+### Способы подключения шрифта на сайте
+
+- использовать дефолтные шрифты
+- выбрать что-то стандартное
+- надеяться, что у пользователя есть нужный нам шрифт
+- загрузить шрифт принудительно
+
+***
+
+### Надеяться, что у пользователя есть нужный нам шрифт
+
+Контур так делает с шрифтом Segoe UI
+
+```css
+font-family: 'Segoe UI', 'Helvetica Neue', Arial, Tahoma, sans-serif;
+```
+
+***
+
+### Примеры того, как это выглядит
+
+Скриншоты с [Контур.Гайдов](https://guides.kontur.ru/principles/typography/)
+
+<div class="image-wrap"><div><h5>
+    MacOS (без Segoe)</h5><img src="assets/browser-diff/mac.png" alt="font"></div><div><h5>
+    Windows (с Segoe)</h5><img src="assets/browser-diff/win.png" alt="font"></div>
+</div>
+
+***
+
+### Больше про шрифты
+
+Доклад "[Я был не прав?](https://www.youtube.com/watch?v=DsfnFrwKksA&feature=youtu.be&t=8132)" Вадима Макеева с конференции Web Standard Days
 
 </script></section>
 
