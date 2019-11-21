@@ -50,10 +50,6 @@ app.post("/cart", (req, res) => {
   res.status(501).end();
 });
 
-app.get("/pay", (req, res) => {
-  res.status(501).end();
-});
-
 app.get("/login", (req, res) => {
   res.status(501).end();
 });
