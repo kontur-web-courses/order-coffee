@@ -1,1 +1,0 @@
-{"version":3,"sources":["About.module.css"],"names":[],"mappings":"AAAA,sBACE,eACF,CAEA,oBACE,YAAa,CACb,0CAEF,CAEA,sBACE,QACF","file":"3.839fbd38.chunk.css","sourcesContent":[".content {\n  max-width: 32rem;\n}\n\n.stats {\n  display: grid;\n  grid-template-columns: minmax(5rem, 1fr) 4fr;\n\n}\n\n.stats p {\n  margin: 0;\n}\n"]}
