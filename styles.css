@@ -45,3 +45,52 @@
     border-radius: 5px;
 }
 
+/* крестик */
+.close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    }
+
+    .close:hover {
+    opacity: 1;
+    }
+
+    .close:before, .close:after {
+    position: absolute;
+    left: 20px;
+    content: ' ';
+    height: 20px;
+    width: 5px;
+    background-color: red;
+    }
+
+    .close:before {
+    transform: rotate(45deg);
+    }
+
+    .close:after {
+    transform: rotate(-45deg);
+    }
+/* Конец Крестика */
+
+fieldset {
+    position: relative;
+    display: inline-block;
+}
+
+dialog::backdrop {
+    background: rgba(22, 21, 21, 0.336);
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
