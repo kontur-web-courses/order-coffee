@@ -5,7 +5,7 @@ document.getElementById('beverage-template').remove();
 
 const modal = document.getElementById('modal');
 const resultParagraph = modal.querySelector('p');
-const resultTable = modal.querySelector('table')
+const resultTable = modal.querySelector('table');
 
 let countBeverage = 0;
 let globalId = 0;
@@ -16,6 +16,10 @@ function addBeverage() {
     const header = newBeverage.querySelector('.beverage-count');
     header.textContent += countBeverage;
     const inputs = newBeverage.querySelectorAll('input[name]');
+    newBeverage.querySelector('.cross')
+        .addEventListener('click', closeBeverage);
+    newBeverage.querySelector('.textarea-field')
+        .addEventListener('keyup', updateTextareaText);
     for (let input of inputs) {
         input.name = `${input.name}_${globalId}`;
     }
@@ -23,15 +27,15 @@ function addBeverage() {
     beverages.append(newBeverage);
 }
 
-function closeBeverage(beverage) {
-    if (countBeverage > 1) {
-        beverage.remove();
-        countBeverage--;
-        let templateString = beverageTemplate.querySelector('.beverage-count').textContent;
-        const headers = document.querySelectorAll('.beverage-count');
-        for (let i = 0; i < headers.length; i++) {
-            headers[i].textContent = templateString + (i + 1);
-        }
+function closeBeverage(event) {
+    if (countBeverage < 2 || event.target.className !== 'cross') return;
+    const beverage = event.target.parentNode;
+    beverage.remove();
+    countBeverage--;
+    let templateString = beverageTemplate.querySelector('.beverage-count').textContent;
+    const headers = document.querySelectorAll('.beverage-count');
+    for (let i = 0; i < headers.length; i++) {
+        headers[i].textContent = templateString + (i + 1);
     }
 }
 
@@ -81,6 +85,54 @@ function createTd(text) {
     const td = document.createElement('td');
     td.textContent = text;
     return td;
+}
+
+function updateTextareaText(event) {
+    if (event.target.className !== 'textarea-field') return;
+    const field = event.target.parentNode.parentNode;
+    field.querySelector('.textarea-text').remove();
+    field.append(createSpan(event.target.value));
+}
+
+function createSpan(text) {
+    const span = document.createElement('span');
+    span.className = 'textarea-text';
+    let lines = text.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+        let posObjects = findPositionsWordsInText(lines[i]);
+        let lastPosition = 0;
+        for (let obj of posObjects) {
+            if (obj.pos < lastPosition) continue;
+            span.append(document.createTextNode(lines[i].slice(lastPosition, obj.pos)));
+            lastPosition = obj.pos + obj.word.length;
+            const b = document.createElement('b');
+            b.textContent = lines[i].slice(obj.pos, lastPosition);
+            span.append(b);
+        }
+        span.append(document.createTextNode(lines[i].slice(lastPosition)));
+        if (i + 1 < lines.length) {
+            span.append(document.createElement('br'));
+        }
+    }
+    return span;
+}
+
+function findPositionsWordsInText(text) {
+    let result = [];
+    let words = ['срочно', 'быстрее', 'побыстрее', 'скорее', 'поскорее', 'очень нужно'];
+    for (let word of words) {
+        let lastPosition = 0;
+        while (true) {
+            let newPosition = text.toLowerCase().indexOf(word, lastPosition);
+            if (newPosition !== -1) {
+                result.push({ word: word, pos: newPosition });
+                lastPosition = newPosition + word.length;
+            }
+            else break;
+        }
+    }
+    result.sort((a, b) => a.pos - b.pos);
+    return result;
 }
 
 document.getElementById('successButton')
