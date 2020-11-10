@@ -2,6 +2,12 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    position: relative;
+}
+
+.beverages {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .beverage-count {
@@ -46,41 +52,38 @@
 }
 
 /* крестик */
-.close {
+
+.cross {
     position: absolute;
     right: 5px;
     top: 5px;
     width: 32px;
     height: 32px;
     opacity: 0.3;
-    }
+}
 
-    .close:hover {
+.cross:hover {
     opacity: 1;
-    }
+}
 
-    .close:before, .close:after {
+.cross:before, .cross:after {
     position: absolute;
     left: 20px;
     content: ' ';
     height: 20px;
     width: 5px;
     background-color: red;
-    }
-
-    .close:before {
-    transform: rotate(45deg);
-    }
-
-    .close:after {
-    transform: rotate(-45deg);
-    }
-/* Конец Крестика */
-
-fieldset {
-    position: relative;
-    display: inline-block;
 }
+
+.cross:before {
+    transform: rotate(45deg);
+}
+
+.cross:after {
+    transform: rotate(-45deg);
+}
+
+/* Конец Крестика */
 
 dialog::backdrop {
     background: rgba(22, 21, 21, 0.336);
@@ -88,7 +91,7 @@ dialog::backdrop {
 
 table, td, th {
     border: 1px solid black;
-    padding: 5px;
+    padding: 10px;
 }
 
 table {
