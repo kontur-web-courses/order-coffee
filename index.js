@@ -42,22 +42,29 @@ function declination(beverageCount){
 }
 
 function addRow(info){
-    let order = {"beverage":"capuccino", "milk": "usual", "options": []}
+    let table = "";
+    let isFirstRun = true;
     let data = new FormData(info);
-    let order_size = 0;
+    let order = {"beve":"capuccino", "milk": "usual", "opti": []}
+    function add(order){
+        let option = Array.prototype.join.call(order.opti, ", ");
+        return `<tr><td>${order["beve"]}</td><td>${order["milk"]}</td><td>${option}</td></tr>`;
+    }
     for (let [key, value] of data) {
-        if(key==="beverage"){
-            order_size++;
+        key = key.slice(0, 4); // because it returns key like options_2,.. options_23, milk_5
+        if(key==="beve" && !isFirstRun){
+            table += add(order);
+            order = {"beve":"capuccino", "milk": "usual", "opti": []};
         }
-        if(key == "options"){
+        if(key == "opti"){
             order[key].push(value);
         }else{
             order[key] = value;
-        }    
+        } 
+        isFirstRun = false;   
     }
-    let option = Array.prototype.join.call(order.options, ", ");
-    let row = `<tr><td>${order["beverage"]}</td><td>${order["milk"]}</td><td>${option}</td></tr>`;
-    return row;
+    table += add(order);
+    return table;
 
 }
 
