@@ -1,8 +1,9 @@
 .beverage {
     border: 1px solid #eee;
-    margin: 15px 0;
+    margin: 15px;
     padding: 15px;
     position: relative;
+    height: fit-content;
 }
 
 .beverages {
@@ -21,7 +22,7 @@
 
 .label-text {
     display: inline-block;
-    width: 80px;
+    width: 55px;
 }
 
 .checkbox-label {
@@ -134,7 +135,6 @@ td, th {
 
 .textarea-text {
     display: block;
-    padding-bottom: 0;
     width: 185px;
     overflow-wrap: break-word;
 }
