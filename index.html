@@ -67,7 +67,7 @@
         <div class="field">
           <label class="textarea-label">
             <span>И еще вот что:</span>
-            <textarea cols="22" rows="5" class="textarea-field"></textarea>
+            <textarea cols="22" rows="5" class="textarea-field" maxlength="150"></textarea>
           </label>
           <span class="textarea-text"></span>
         </div>
@@ -79,9 +79,7 @@
       <button type="button" class="add-button">+ Добавить напиток</button>
     </div>
 
-    <div style="margin-top: 15px">
-      <input type='button' id='successButton' class="submit-button" value="Готово">
-    </div>
+    <input type='button' class="success-button" value="Готово">
   </form>
 
   <dialog id="modal">
@@ -92,8 +90,14 @@
         <th>Напиток</th>
         <th>Молоко</th>
         <th>Дополнительно</th>
+        <th>Пожелания</th>
       </tr>
     </table>
+    <label>
+      Выберите время заказа:
+      <input type="time" name="order-time" value="00:00" />
+    </label>
+    <input type="button" class="send-button" value="Оформить" />
   </dialog>
 
   <script src="index.js"></script>

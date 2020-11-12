@@ -40,6 +40,7 @@ function closeBeverage(event) {
 }
 
 function openModal() {
+    modal.className = '';
     updateParagraph();
     updateTable();
     modal.showModal();
@@ -64,9 +65,10 @@ function updateTable() {
         tbody.removeChild(tbody.lastChild);
     }
     for (let beverage of beverages.children) {
-        let select = beverage.querySelector('select');
-        let radio = beverage.querySelector('input:checked[type=radio]');
-        let checkBoxes = beverage.querySelectorAll('input:checked[type=checkbox]');
+        const select = beverage.querySelector('select');
+        const radio = beverage.querySelector('input:checked[type=radio]');
+        const checkBoxes = beverage.querySelectorAll('input:checked[type=checkbox]');
+        const textarea = beverage.querySelector('.textarea-field');
         let text = '';
         for (let i = 0; i < checkBoxes.length; i++) {
             text += `${checkBoxes[i].value}`;
@@ -77,6 +79,7 @@ function updateTable() {
         tr.append(createTd(select.value));
         tr.append(createTd(radio.value));
         tr.append(createTd(text));
+        tr.append(createTd(textarea.value));
         tbody.append(tr);
     }
 }
@@ -135,7 +138,29 @@ function findPositionsWordsInText(text) {
     return result;
 }
 
-document.getElementById('successButton')
+function sendBeverage() {
+    const time = modal.querySelector('input[type=time]');
+    const currentTime = new Date();
+    let [hours, minutes] = time.value.split(':');
+    if (currentTime.getHours() * 60 + currentTime.getMinutes() >= parseInt(hours) * 60 + parseInt(minutes)) {
+        modal.className = "dialog-error";
+        setTimeout(() => alert('Мы не умеем перемещаться во времени. Выберите время позже, чем текущее'), 0);
+        return;
+    }
+    modal.className = "dialog-success";
+    setTimeout(() => { closeModal(); resetForm(); }, 500);
+
+}
+
+function resetForm() {
+    beverages.innerHTML = '';
+    countBeverage = 0;
+    globalId = 0;
+    modal.querySelector('input[type=time]').value = '00:00';
+    addBeverage();
+}
+
+document.querySelector('.success-button')
     .addEventListener('click', openModal);
 
 modal.querySelector('.cross')
@@ -144,4 +169,7 @@ modal.querySelector('.cross')
 document.querySelector('.add-button')
     .addEventListener('click', addBeverage);
 
-addBeverage();
+document.querySelector('.send-button')
+    .addEventListener('click', sendBeverage);
+
+resetForm();
