@@ -1,4 +1,5 @@
 .beverage {
+    position: relative;
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
@@ -45,3 +46,26 @@
     border-radius: 5px;
 }
 
+.close,
+.closeModal{
+    position: absolute;
+    text-align: center;
+    color: LIGHTYELLOW;
+    background-color: TOMATO;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    border: none;
+}
+
+.modal{
+    width:500px;
+    height:auto;
+    text-align: center;
+}
+
+#examleTable{
+    display: none;
+}
