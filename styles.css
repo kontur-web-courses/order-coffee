@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .beverage {
     border: 1px solid #eee;
     margin: 15px 0;
@@ -43,5 +49,169 @@
     padding: 7px 15px;
     border: 2px solid orange;
     border-radius: 5px;
+    cursor: pointer;
 }
 
+
+/*__________________________________________*/
+
+.beverage__header {
+    display: flex;
+}
+
+.beverage__close {
+    height: fit-content;
+    margin-left: 20px;
+    font-size: 13px;
+    color: grey;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s;
+}
+
+.beverage__close:hover {
+    opacity: .8;
+}
+
+.modal__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.44);
+    backdrop-filter: blur(2px);
+}
+
+.modal {
+    min-width: 450px;
+    max-width: 700px;
+    width: fit-content;
+    min-height: 100px;
+    max-height: 80%;
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    padding: 20px;
+
+    background-color: #fafafa;
+    border: solid 1px grey;
+    border-radius: 5px;
+
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.modal__head {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.modal__body {
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.wrapper {
+    display: block;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.alert {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    font-size: 12px;
+    color: red;
+    transition: height .3s;
+}
+
+.modal__close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 13px;
+    color: grey;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s;
+}
+
+.modal__close:hover {
+    opacity: .8;
+}
+
+.d-none {
+    display: none;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.wishes > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wishes > div > textarea {
+    width: 48%;
+    height: 100px;
+    resize: none;
+}
+
+.wishes > div > .result {
+    width: 48%;
+    height: 100px;
+    overflow: auto;
+    border: dotted 1px grey;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table td, table th {
+    padding: 5px 10px;
+}
+
+table > thead > tr th {
+    background-color: #dffffb;
+}
+
+table > tbody > tr:nth-child(2n) {
+    background-color: #e7e7e7;
+}
+
+table > tbody > tr:nth-child(2n + 1) {
+    background-color: #fff2f2;
+}
+
+table thead tr th {
+    position: sticky;
+    top: -2px;
+}
+
+.done:not(:disabled) {
+    cursor: pointer;
+}
+
+#time {
+    border: solid 1px #656565;
+    border-radius: 5px;
+    outline: none;
+}
+
+#time:invalid {
+    border-color: red;
+}
+
+#time:invalid ~ .alert {
+    height: 14px;
+}
