@@ -1,7 +1,23 @@
 .beverage {
+    position: relative;
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+
+}
+
+
+.remove{
+    position: absolute;
+    right: 5px;
+}
+
+.hide{
+    display: none;
+}
+
+.blur {
+    filter: blur(2px);
 }
 
 .beverage-count {
@@ -45,3 +61,22 @@
     border-radius: 5px;
 }
 
+#lightbox{
+    display: none;
+    position: absolute;
+    text-align: center;
+    width: 500px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+}
+table{
+    margin: auto;
+}
+
+
+
+table td{
+    padding-left: 10px;
+}
