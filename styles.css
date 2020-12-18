@@ -45,3 +45,24 @@
     border-radius: 5px;
 }
 
+.delete {
+    float: right;
+    position: relative;
+    top: -20px;
+}
+
+table {
+    width: 550px;
+    table-layout: fixed;
+}
+
+table td {
+    border: 1px solid black;
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+textarea {
+    width: 80%;
+    height: 150px;
+}
