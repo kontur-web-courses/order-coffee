@@ -1,11 +1,17 @@
-.beverage {
+.beverage-form {
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    width: 300px;
+    position: relative;
 }
 
 .beverage-count {
     margin: 0 0 15px;
+}
+
+.beverage {
+    border-color: transparent;
 }
 
 .field {
@@ -45,3 +51,39 @@
     border-radius: 5px;
 }
 
+.delete-button { 
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.order-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #363636d2;
+    z-index:  10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.order-modal {
+    position: relative;
+    background-color: white;
+    border: 2px black solid;
+    width: 500px;
+    padding: 20px;
+}
+
+.order-table {
+    border-collapse:collapse;
+    width: 100%;
+}
+.order-table th, td{
+    border: 1px solid black;
+    padding: 5px;
+}

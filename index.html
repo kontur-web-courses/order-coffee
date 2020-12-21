@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Заказ кофе</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <form>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Заказ кофе</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="order-container">
+    <div class="order-modal">
+      <h1 class="order-count">Вы заказали __ напитков</h1>
+      <table class="order-table">
+        <tr>
+          <th>Напиток</th>
+          <th>Молоко</th>
+          <th>Дополнительно</th>
+        </tr>
+      </table>
+      <button type="button" class="delete-button" onclick="closeOrder()">❌</button>
+    </div>
+  </div>
+
+  <div class="beverage-list">
+    <form class="beverage-form">
       <fieldset class="beverage">
         <h4 class="beverage-count">Напиток №1</h4>
         <label class="field">
           <span class="label-text">Я буду</span>
-          <select>
+          <select name="drink">
             <option value="espresso">Эспрессо</option>
             <option value="capuccino" selected>Капучино</option>
             <option value="cacao">Какао</option>
@@ -55,15 +72,18 @@
             <span>корицу</span>
           </label>
         </div>
+        <button type="button" class="delete-button" onclick="removeBevarage(this)">❌</button>
       </fieldset>
-      <div>
-        <button type="button" class="add-button">+ Добавить напиток</button>
-      </div>
-      <div style="margin-top: 30px">
-        <button type="submit" class="submit-button">Готово</button>
-      </div>
-    </form>
 
-    <script src="index.js"></script>
-  </body>
+    </form>
+  </div>
+  <div>
+    <button type="button" class="add-button">+ Добавить напиток</button>
+  </div>
+  <div style="margin-top: 30px">
+    <button type="button" class="submit-button" onclick="makeOrder()">Готово</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+
 </html>
