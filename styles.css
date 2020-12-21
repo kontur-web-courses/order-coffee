@@ -1,7 +1,20 @@
+p {
+    white-space: pre;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.td {
+    padding: 15px;
+}
+
 .beverage {
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    position: relative;
 }
 
 .beverage-count {
@@ -45,3 +58,101 @@
     border-radius: 5px;
 }
 
+.cl-btn-fs {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 10px;
+    right: 5%;
+}
+
+.cl-btn-fs:before {
+    width: 50px;
+    height: 50px;
+    content: "+";
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.cl-btn-fs:hover {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#overlay .lightboxLayout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.lightbox {
+    width: 400px;
+    padding: 20px 30px 40px;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    box-shadow: -1px 2px 69px 11px rgba(0, 0, 0, 0.15);
+}
+.lightbox h2,
+.lightbox p {
+    margin: 15px 0;
+}
+#closeLBXButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    z-index: 1;
+    margin: 20px auto;
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: 15px;
+}
+#closeLBXButton:before {
+    content: '+';
+    color: #337AB7;
+    position: absolute;
+    z-index: 2;
+    transform: rotate(45deg);
+    font-size: 50px;
+    line-height: 1;
+    top: -4px;
+    left: 5px;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+#closeLBXButton:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: #337AB7;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+    transform: scale(0.01);
+}
+#closeLBXButton:hover:after {
+    transform: scale(1);
+}
+#closeLBXButton:hover:before {
+    transform: scale(0.8) rotate(45deg);
+    color: #fff;
+}
+
+.wrongInput {
+    border: 1px solid red;
+}
