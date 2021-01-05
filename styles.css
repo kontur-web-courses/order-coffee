@@ -1,9 +1,32 @@
 .beverage {
+    position: relative;
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
 }
-
+table{
+    margin: 5px 5px 15px 5px;
+    width: 630px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+th,tr,td{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.close{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 30px;
+    height: 30px;
+}
+.close-lightbox{
+    margin: 2px 2px auto auto;
+    position: relative;
+}
 .beverage-count {
     margin: 0 0 15px;
 }
@@ -45,3 +68,29 @@
     border-radius: 5px;
 }
 
+.darkening{
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.3);
+    z-index: 3;
+}
+.lightbox{
+    background-color: white;
+    width: 640px;
+    position: relative;
+    z-index: 5;
+}
+.head-lightbox{
+    display: flex;
+    justify-content: space-between;
+}
+.ammountOfCoffee{
+    margin: 2px auto auto 30px;
+    text-align: center;
+}
