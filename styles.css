@@ -45,3 +45,35 @@
     border-radius: 5px;
 }
 
+.cross {
+    background-color: red;
+    position: absolute;
+    right: 1400px;
+}
+
+.crossdialog {
+    right: 0;
+    top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    background: rgb(238, 217, 118);
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.dialog {
+    width: 500px;
+}
+
+dialog::backdrop {
+    background: rgba(139, 140, 145, 0.521);
+}
