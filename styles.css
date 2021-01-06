@@ -45,3 +45,56 @@
     border-radius: 5px;
 }
 
+.modal {
+    background-color: #dcdcdc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.modal_txt {
+    background: white;
+    padding: 30px;
+    margin: 100px auto;
+    max-width: 300px;
+    position: relative;
+}
+
+.body_block {
+    overflow: hidden;
+    margin-right: 17px;
+}
+#close_modal {
+    font-size: 40px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    transform: rotate(45deg);
+    box-sizing: content-box;
+}
+
+#open_modal:hover {
+    cursor: pointer;
+}
+
+.close {
+    position: relative;
+    left: 15px;
+    color: black;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td {
+    border: 2px solid gray;
+    padding: 5px;
+}
+
+.hidden {
+    display: none;
+}
