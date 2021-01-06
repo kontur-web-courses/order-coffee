@@ -8,10 +8,11 @@
   <body>
     <form>
       <fieldset class="beverage">
+        <button type="button" class='cross'>&#10008</button>
         <h4 class="beverage-count">Напиток №1</h4>
         <label class="field">
           <span class="label-text">Я буду</span>
-          <select>
+          <select name ='drink'>
             <option value="espresso">Эспрессо</option>
             <option value="capuccino" selected>Капучино</option>
             <option value="cacao">Какао</option>
@@ -63,6 +64,14 @@
         <button type="submit" class="submit-button">Готово</button>
       </div>
     </form>
+
+    <dialog>
+      <button class='cross crossdialog'>&#10008</button>
+      <p>Заказ принят!</p>
+      <p class='text1'></p>
+    </dialog>
+
+    </div>
 
     <script src="index.js"></script>
   </body>
