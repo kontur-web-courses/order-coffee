@@ -6,12 +6,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="hidden" class="hidden hide"></div>
+    <div id="lightbox" class="hide">
+      <div class="lightbox">
+        <div id="close" class="close">X</div>
+        <div>
+          <h3>Заказ принят!</h3>
+          <p id="count-drink"></p>
+          <table id="table"></table>
+        </div>
+      </div>
+    </div>
     <form>
       <fieldset class="beverage">
+        <div class="close close-form hide" id="b">X</div>
         <h4 class="beverage-count">Напиток №1</h4>
         <label class="field">
           <span class="label-text">Я буду</span>
-          <select>
+          <select name="drink">
             <option value="espresso">Эспрессо</option>
             <option value="capuccino" selected>Капучино</option>
             <option value="cacao">Какао</option>
@@ -59,8 +71,11 @@
       <div>
         <button type="button" class="add-button">+ Добавить напиток</button>
       </div>
+
       <div style="margin-top: 30px">
-        <button type="submit" class="submit-button">Готово</button>
+        <button type="button" class="submit-button" onClick="ShowLightbox()">
+          Готово
+        </button>
       </div>
     </form>
 
