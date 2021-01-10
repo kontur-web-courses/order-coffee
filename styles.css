@@ -3,31 +3,25 @@
     margin: 15px 0;
     padding: 15px;
 }
-
 .beverage-count {
     margin: 0 0 15px;
 }
-
 .field {
     display: block;
     margin-bottom: 10px;
 }
-
 .label-text {
     display: inline-block;
     width: 80px;
 }
-
 .checkbox-label {
     margin-bottom: 5px;
     display: inline-block;
 }
-
 .checkbox-field {
     margin: 5px 0;
     display: block;
 }
-
 .add-button {
     border: none;
     background: none;
@@ -37,7 +31,6 @@
     text-decoration: underline dashed;
     cursor: pointer;
 }
-
 .submit-button {
     font-size: 16px;
     padding: 7px 15px;
@@ -45,3 +38,60 @@
     border-radius: 5px;
 }
 
+.close
+{
+    float: right;
+    border: 1px solid black;
+    padding: 0px 5px;
+}
+
+.hidden {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.lightbox {
+    position: fixed;
+    width: 640px;
+    height: auto;
+    top: 30%;
+    left: calc(50% - 320px);
+    background-color:#ffffff;
+    z-index: 2;
+    padding: 15px;
+}
+
+.hide {
+    display: none !important;
+}
+
+h3
+{
+    text-align: center;
+}
+
+table{
+    border-collapse:collapse;
+       padding: 10px;
+       margin: auto;
+    }
+
+    td {
+    border-collapse: collapse;
+    padding: 10px;
+    border: 1px solid lightgray;
+
+}
+
+th{
+       padding: 10px;
+    }
+
+p{
+   text-align: center;
+} 
