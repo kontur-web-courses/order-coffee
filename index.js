@@ -4,16 +4,9 @@ document.querySelector('.add-button').addEventListener('click', ()=>generateFiel
 function generateFieldSet(){
     drinkCounter += 1;
     let fs = document.createElement('fieldset');
-    fs.innerHTML='<h4 class="beverage-count">Напиток №'+`${drinkCounter}`+'</h4>\n' +
-        '        <label class="field">\n' +
-        '          <span class="label-text">Я буду</span>\n' +
-        '          <select>\n' +
-        '            <option value="espresso">Эспрессо</option>\n' +
-        '            <option value="capuccino" selected>Капучино</option>\n' +
-        '            <option value="cacao">Какао</option>\n' +
-        '          </select>\n' +
-        '        </label>\n' +
-        '        <div class="field">\n' +
+    fs.appendChild(header(drinkCounter));
+    fs.appendChild(labelledSelect(drinkCounter));
+    fs.innerHTML+= '        <div class="field">\n' +
         '          <span class="checkbox-label">Сделайте напиток на</span>\n' +
         '          <label class="checkbox-field">\n' +
         '            <input type="radio" name=' + `milk${drinkCounter}`+ ' value="usual" checked />\n' +
@@ -61,4 +54,31 @@ function header(count){
     let h = document.createElement('h4')
     h.classList.add('beverage-count');
     h.textContent = `Напиток №${drinkCounter}`
+    return h;
+}
+
+function labelledSelect(count){
+    let label = document.createElement('label');
+    label.classList.add("field");
+    let span = document.createElement('span');
+    span.classList.add('label-text');
+    span.textContent = 'Я буду';
+    label.appendChild(span);
+    label.appendChild(generateSelect());
+    return label;
+}
+
+function generateSelect(){
+    let sel = document.createElement('select')
+    sel.appendChild(generateOption("espresso", "Эспрессо"));
+    sel.appendChild(generateOption("capuccino", "Капучино"));
+    sel.appendChild(generateOption("cacao", "Какао"));
+    return sel;
+}
+
+function generateOption(val, text){
+    let opt = document.createElement('option')
+    opt.value = val;
+    opt.textContent = text;
+    return opt;
 }
