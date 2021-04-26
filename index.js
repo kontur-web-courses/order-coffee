@@ -1,5 +1,7 @@
 let addButton = document.querySelector('.add-button');
-let submitButton = document.querySelector('.submit-button')
+let submitButton = document.querySelector('.submit-button');
+let crossButton = document.createElement('button');
+crossButton.textContent = 'X';
 let counter = 1;
 let fieldsets = document.querySelectorAll('fieldset')
 
@@ -18,6 +20,15 @@ const addDrink = () => {
     form.appendChild(div2);
     div1.appendChild(addButton);
     div2.appendChild(submitButton);
+    let cross = document.createElement('div');
+    cross.appendChild(crossButton);
+    form.insertBefore(clone, crossButton)
 };
 
-addButton.addEventListener('click', addDrink)
+
+const removeDrink = () => {
+
+};
+
+addButton.addEventListener('click', addDrink);
+crossButton.addEventListener('click', removeDrink)
