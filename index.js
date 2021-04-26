@@ -1,3 +1,10 @@
+let modal = document.getElementById("my_modal");
+let btn = document.getElementsByClassName("submit-button")[0];
+let span = document.getElementsByClassName("close_modal_window")[0];
+
+btn.addEventListener('click', (e) => {
+    document.getElementById("my_modal").style.display = "block";
+});
 let addButton = document.querySelector('.add-button');
 let submitButton = document.querySelector('.submit-button');
 let crossButton = document.createElement('button');
@@ -28,7 +35,12 @@ const addDrink = () => {
 
 const removeDrink = () => {
 
-};
+span.addEventListener('click', (e) => {
+    document.getElementById("my_modal").style.display = "none";
+});
 
-addButton.addEventListener('click', addDrink);
-crossButton.addEventListener('click', removeDrink)
+window.addEventListener('click', (e) => {
+    if (e.target === document.getElementById("my_modal")) {
+        document.getElementById("my_modal").style.display = "none";
+    }
+});
