@@ -2,6 +2,7 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    position: relative;
 }
 
 .beverage-count {
@@ -45,3 +46,39 @@
     border-radius: 5px;
 }
 
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.overlay {
+    position: fixed;
+    box-sizing: content-box;
+    background-color: rgba(59, 67, 76, 0.7);
+    display: flex;
+    visibility: hidden;
+    padding: inherit;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    text-align: center;
+    box-sizing: content-box;
+    background-color: white;
+    width: 500px;
+    position: relative;
+}
+
+.close-model {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
