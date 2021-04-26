@@ -35,19 +35,19 @@ function generateFieldSet(){
         '        <div class="field">\n' +
         '          <span class="checkbox-label">Добавьте к напитку:</span>\n' +
         '          <label class="checkbox-field">\n' +
-        '            <input type="checkbox" name="options" value="whipped cream" />\n' +
+        '            <input type="checkbox" name=' + `options${drinkCounter}`+ ' value="whipped cream" />\n' +
         '            <span>взбитых сливок</span>\n' +
         '          </label>\n' +
         '          <label class="checkbox-field">\n' +
-        '            <input type="checkbox" name="options" value="marshmallow" />\n' +
+        '            <input type="checkbox" name=' + `options${drinkCounter}`+ ' value="marshmallow" />\n' +
         '            <span>зефирок</span>\n' +
         '          </label>\n' +
         '          <label class="checkbox-field">\n' +
-        '            <input type="checkbox" name="options" value="chocolate" />\n' +
+        '            <input type="checkbox" name=' + `options${drinkCounter}`+ ' value="chocolate" />\n' +
         '            <span>шоколад</span>\n' +
         '          </label>\n' +
         '          <label class="checkbox-field">\n' +
-        '            <input type="checkbox" name="options" value="cinnamon" />\n' +
+        '            <input type="checkbox" name=' + `options${drinkCounter}`+ ' value="cinnamon" />\n' +
         '            <span>корицу</span>\n' +
         '          </label>\n' +
         '        </div>'
@@ -55,4 +55,10 @@ function generateFieldSet(){
     let bt = document.body.querySelector('.add-button').parentElement
     let form = document.querySelector('form');
     form.insertBefore(fs, bt);
+}
+
+function header(count){
+    let h = document.createElement('h4')
+    h.classList.add('beverage-count');
+    h.textContent = `Напиток №${drinkCounter}`
 }
