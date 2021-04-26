@@ -8,6 +8,14 @@
     margin: 0 0 15px;
 }
 
+.delete-beverage {
+    position: relative;
+    left: 150px;
+    bottom: 35px;
+    color: white;
+    background-color: red;
+}
+
 .field {
     display: block;
     margin-bottom: 10px;
