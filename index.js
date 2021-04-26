@@ -35,6 +35,8 @@ const addDrink = () => {
 
 const removeDrink = () => {
 
+}
+
 span.addEventListener('click', (e) => {
     document.getElementById("my_modal").style.display = "none";
 });
