@@ -21,6 +21,32 @@ function addButtonHandler() {
 
 addButton.addEventListener('click', addButtonHandler);
 
+document.querySelector('form').addEventListener('submit', function () {
+    document.body.insertAdjacentHTML('afterbegin', '<div class="bluredbg" style="    width: 100vw;\n' +
+        '    height: 100vh;\n' +
+        '    background-color: rgba(0, 0, 0, 0.6);\n' +
+        '    backdrop-filter: blur(3px);\n' +
+        '    position: fixed;\n' +
+        '    top: 0;\n' +
+        '    display: flex;\n' +
+        '    justify-content: center;\n' +
+        '    align-items: center;">\n' +
+        '    <div class="modal" style="    width: 650px;\n' +
+        '    max-height: 300px;\n' +
+        '    background-color: whitesmoke;\n' +
+        '    overflow-y: auto;\n' +
+        '    border-radius: 16px;\n' +
+        '    display: flex;\n' +
+        '    flex-direction: column;">\n' +
+        '        <button style="    width: 30px;\n' +
+        '    align-self: flex-end;\n' +
+        '    border-radius: 16px;\n' +
+        '    margin-top: 3px;\n' +
+        '    margin-right: 3px;">&#10006;</button>\n' +
+        '        <p>ЗАКАЗ ПРИНЯТ</p>\n' +
+        '    </div>\n' +
+        '</div>')
+})
 
 
 
