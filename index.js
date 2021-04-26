@@ -21,8 +21,9 @@ const deleteButton = document.querySelector('.delete-beverage')
 deleteButton.addEventListener(
     'click',
     function (e) {
-            console.log(e.target.parentNode.parentNode);
-            if (e.target.parentNode.parentNode.firstChild == e.target.parentNode)
-                e.target.parentNode.remove();
+        const fieldset = e.target.parentNode.parentNode;
+        console.log(fieldset, fieldset);
+        if (fieldset.parentNode.querySelector('.beverage') !== fieldset)
+            fieldset.remove();
     }
 )

@@ -12,6 +12,9 @@
     position: relative;
     left: 150px;
     bottom: 35px;
+}
+
+.delete-beverage button {
     color: white;
     background-color: red;
 }
