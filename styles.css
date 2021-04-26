@@ -2,6 +2,9 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    width: 280px;
+    display: block;
+    position: relative;
 }
 
 .beverage-count {
@@ -11,6 +14,7 @@
 .field {
     display: block;
     margin-bottom: 10px;
+    width: max-content;
 }
 
 .label-text {
@@ -45,3 +49,14 @@
     border-radius: 5px;
 }
 
+.delete-beverage {
+    text-align: center;
+    top: 50px;
+    right: 20px;
+    float: right;
+    position: absolute;
+}
+
+.more-buttons {
+    display: block;
+}
