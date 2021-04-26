@@ -4,6 +4,13 @@
     padding: 15px;
 }
 
+.close-button {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
 .beverage-count {
     margin: 0 0 15px;
 }
@@ -45,3 +52,6 @@
     border-radius: 5px;
 }
 
+fieldset {
+    position: relative;
+}
