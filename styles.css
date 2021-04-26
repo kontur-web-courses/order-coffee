@@ -5,6 +5,11 @@
 }
 
 .close-button {
+    font-family: sans-serif;
+    padding: 2px 5px;
+    border: 1px black solid;
+    border-radius: 5%;
+    background-color: #eee;
     display: block;
     position: absolute;
     right: 15px;
