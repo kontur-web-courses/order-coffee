@@ -54,3 +54,4 @@ function setDeleteButtonsDisabled(value) {
     document.querySelectorAll('.delete_btn')
         .forEach(btn => btn.disabled = value);
 }
+
