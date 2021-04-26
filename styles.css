@@ -32,7 +32,7 @@
     border: none;
     background: none;
     padding: 10px;
-    color: rgba(0, 27, 255, 0.82);
+    color: rgba(0, 27, 255, 0.8);
     font-size: 14px;
     text-decoration: underline dashed;
     cursor: pointer;
@@ -45,3 +45,43 @@
     border-radius: 5px;
 }
 
+.delete_btn {
+    position: absolute;
+    right: 20px;
+}
+
+.modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: relative;
+    width: 500px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    padding: 20px;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
