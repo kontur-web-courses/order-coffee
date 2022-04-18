@@ -1,3 +1,27 @@
+.overlay {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.25);
+    z-index: 100;
+  }
+
+.lightbox {
+    position: fixed;
+    width: 640px;
+    height: fit-content;
+    background-color: red;
+}
+
+.lightbox button {
+    float: right;
+}
+
 .beverage {
     border: 1px solid #eee;
     margin: 15px 0;
