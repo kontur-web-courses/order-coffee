@@ -37,6 +37,22 @@ document.querySelector('.submit-button').addEventListener('click', function (e) 
     let overlay = document.querySelector('.overlay');
     modal.style.display = "block";
     overlay.style.display = "block";
+
+    let orderText = document.getElementById('order');
+    const wordDict = {
+        1: " напиток",
+        2: " напитка",
+        3: " напитка",
+        4: " напитка",
+        5: " напитков",
+        6: " напитков",
+        7: " напитков",
+        8: " напитков",
+        9: " напитков",
+        0: " напитков"
+    };
+    let word = wordDict[_counter % 10];
+    orderText.textContent = "Вы заказали " + _counter.toString() + " " + word;
 });
 
 document.querySelector('.close_window').addEventListener('click', function () {
@@ -45,4 +61,6 @@ document.querySelector('.close_window').addEventListener('click', function () {
     modal.style.display = "none";
     overlay.style.display = "none";
 });
+
+
 
