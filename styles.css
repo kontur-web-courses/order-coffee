@@ -74,8 +74,10 @@
 }
 
 .close {
-    color: #aaa;
+    background-color: red;
+    color: white;
     float: right;
-    font-size: 28px;
+    border: none;
+    font-size: 16px;
     font-weight: bold;
 }
