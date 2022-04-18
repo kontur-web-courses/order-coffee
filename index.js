@@ -9,6 +9,13 @@ document.querySelector('.add-button').addEventListener("click", ()=>{
     forms[forms.length - 1].after(newForm);
 });
 
+document.querySelector('.submit-button').addEventListener("click", ()=>{
+   document.querySelector('#drinkDialog').showModal();
+   document.querySelector('.close-dialog').addEventListener('click', ()=>{
+       document.querySelector('#drinkDialog').close();
+   })
+});
+
 function remove(smt){
     if(document.querySelectorAll('.beverage').length > 1)
         smt.parentElement.remove();
