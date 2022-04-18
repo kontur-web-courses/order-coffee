@@ -27,10 +27,24 @@ function removeDrink(target) {
 document.querySelector(".submit-button")
         .addEventListener("click", (e) => {
     document.querySelector("#drinkConfDialog").showModal();
-    document.querySelector(".modal-content").innerHTML = `Заказ принят!`;
+
+    document.querySelector(".modal-content").innerHTML = `Вы заказали ${drinkCounter} ${endOfBeverage()}`;
     document.querySelector(".close-dialog")
             .addEventListener("click", (e) => {
         document.querySelector("#drinkConfDialog").close();
     });
 });
 
+function endOfBeverage() {
+    dC = drinkCounter % 100;
+    if (dC > 10 && dC < 20) {
+      return "напитков";
+    }
+    if (dC % 10 > 1 && dC % 10 < 5) {
+      return "напитка";
+    }
+    if (dC % 10 == 1) {
+      return "напиток";
+    }
+    return "напитков";
+  }
