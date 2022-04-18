@@ -1,4 +1,5 @@
 .beverage {
+    position: relative;
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
@@ -43,5 +44,25 @@
     padding: 7px 15px;
     border: 2px solid orange;
     border-radius: 5px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: red;
+    color: white;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+}
+
+dialog {
+    padding: 15px;
+    padding-top: 30px;
+    max-width: 700px;
+}
+
+.modal-content {
+    text-align: center;
 }
 
