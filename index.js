@@ -1,6 +1,50 @@
+let beverageCounter = 1;
+let beverageNameCounter = 1;
+
+let closeButtons = document.querySelectorAll('.delete');
+
+for (let closeButton of closeButtons) {
+    closeButton.addEventListener('click', (evt) => deleteFieldset(closeButton));
+}
+
+function deleteFieldset(button) {
+    if (beverageNameCounter === 1) {
+        return;
+    }
+    let fieldset = button.closest('.beverage');
+    let h = fieldset.querySelector('H4');
+    let deletedNumber = parseInt(h.textContent.slice(9), 10);
+    fieldset.remove();
+    beverageNameCounter--;
+
+    let hs = document.querySelectorAll('H4');
+    for (let h of hs) {
+        let content = h.textContent;
+        let title = content.slice(0, 9);
+        let number = content.slice(9);
+        if (number < deletedNumber) {
+            continue;
+        }
+        let newNumber = (parseInt(number, 10) - 1).toString();
+        h.textContent = title + newNumber;
+    }
+}
+
+let modal = document.getElementById('myModal');
+
+let submitButton = document.querySelector('.submit-button');
+submitButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    modal.style.display = 'block';
+});
+
+let modalCloseButton = document.querySelector('.close');
+modalCloseButton.addEventListener('click', (evt) => {
+    modal.style.display = 'none';
+});
+
 let addButton = document.getElementsByClassName('add-button')[0];
 let formContainer = document.getElementsByClassName('container')[0];
-let beverageCounter = 1;
 
 const milkValues = ['usual', 'no-fat', 'soy', 'coconut'];
 const milkTexts = ['обычном молоке', 'обезжиренном молоке', 'соевом молоке', 'кокосовом молоке'];
@@ -10,13 +54,19 @@ const extraTexts = ['взбитых сливок', 'зефирок', 'шокол
 
 addButton.addEventListener('click', (e) => {
   beverageCounter++;
+  beverageNameCounter++;
 
   let fieldset = document.createElement('fieldset');
   fieldset.className = 'beverage';
 
+  let deleteButton = document.createElement('button');
+  deleteButton.className = 'delete';
+  deleteButton.innerText = 'X';
+  deleteButton.addEventListener('click', (evt) => deleteFieldset(deleteButton));
+
   let h4 = document.createElement('h4');
   h4.className = 'beverage-count';
-  h4.innerText = `Напиток №${beverageCounter}`;
+  h4.innerText = `Напиток №${beverageNameCounter}`;
 
   let beverageChooser = document.createElement('Label');
   beverageChooser.className = 'field';
@@ -88,6 +138,7 @@ addButton.addEventListener('click', (e) => {
   textareaLabel.appendChild(textFromInput);
   textarea.appendChild(textareaLabel);
 
+  fieldset.appendChild(deleteButton);
   fieldset.appendChild(h4);
   fieldset.appendChild(beverageChooser);
   fieldset.appendChild(milk);
