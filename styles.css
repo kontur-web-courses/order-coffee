@@ -53,7 +53,7 @@
 
 .closeButton {
     cursor: pointer;
-    margin-left: 90%;
+    margin-left: 95%;
     transform: translate(0%, -50%);
 }
 
@@ -77,4 +77,8 @@
     z-index: 101;
     background-color: white;
     padding: 10px;
+}
+
+th, td {
+    border: 1px solid black;
 }

@@ -4,7 +4,13 @@ let div = document.getElementsByClassName("fieldsets")[0];
 
 function createNewFieldSet() {
     let newFieldset = document.createElement("fieldset");
+    newFieldset.setAttribute("class", "beverage");
     newFieldset.innerHTML = fieldsets[0].innerHTML;
+    for (let input of newFieldset.getElementsByTagName("input")) {
+        if (input.getAttribute("type") === "radio") {
+            input.setAttribute("name", `milk${fieldsCount + 1}`);
+        }
+    }
     let id = fieldsCount++;
     newFieldset.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(newFieldset));
     newFieldset.getElementsByTagName("h4")[0].innerText = `Напиток №${id + 1}`;
@@ -48,6 +54,33 @@ function getPadezh(i) {
 function callModalWindow() {
     document.getElementById("modalWindowTextHUJ").innerText = `Вы заказали ${fieldsCount} ${getPadezh(fieldsCount)}`;
     document.getElementsByClassName("overlay")[0].style.setProperty("display", "flex");
+    let tbody = document.getElementsByClassName("overlay")[0].getElementsByTagName("tbody")[0];
+    tbody.innerHTML = "";
+    const toRussian = {"usual": "обычное", "no-fat": "обезжиренное", "soy": "соевое", "coconut": "кокосовое"};
+    for (let fieldset of fieldsets) {
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.innerText = fieldset.getElementsByTagName("select")[0].selectedOptions[0].textContent
+        let td2 = document.createElement("td");
+        fieldset.querySelectorAll('input[type="radio"]').forEach((x) => {
+            if (x.checked){
+                td2.innerText = toRussian[x.value];
+            }
+        });
+        let td3 = document.createElement("td");
+        fieldset.querySelectorAll('input[type="checkbox"]').forEach((x) => {
+            if (x.checked){
+                if (td3.innerText.length !== 0) {
+                    td3.innerText += ", ";
+                }
+                td3.innerText += x.parentElement.querySelector('span').textContent;
+            }
+        });
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tbody.appendChild(tr);
+    }
 }
 
 function removeModalWindow() {
