@@ -7,7 +7,7 @@ document.addEventListener('click', event =>{
         console.log('here');
     }
 })
-let fss = document.querySelectorAll('fieldset');
+let fss = document.querySelectorAll(".beverage")
 for(let fs of fss){
     fs.style.position = 'relative';
     let button = CreateCloseButton();
@@ -33,15 +33,14 @@ document.querySelector(".add-button").addEventListener('click', () => {
     forms[forms.length - 1].after(newForm);
 });
 
-var modal = document.getElementById("myModal");
+function DrinksOrdered(){
+    
+}
 
-var btn = document.querySelector(".submit-button");
-btn.onclick = e => e.preventDefault();
-// btn.parentElement.submit(function(e) {
-//     e.preventDefault();
-// })
-
-var span = document.getElementsByClassName("close")[0];
+let modal = document.getElementById("myModal");
+let btn = document.querySelector(".submit-button");
+let form = document.getElementById('beverage-form');
+let span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
     modal.style.display = "block";
