@@ -73,9 +73,25 @@ addButton.addEventListener('click', (e) => {
     extras.appendChild(field);
   }
 
+  let textarea = document.createElement('Div');
+  textarea.className = 'field';
+  let textareaLabel = document.createElement('label');
+  textareaLabel.innerText = 'И еще вот что';
+  let textFromInput = document.createElement('span');
+  let textareaInput = document.createElement('input');
+  textareaInput.type = 'textarea';
+  textareaInput.name = 'text' + beverageCounter;
+  textareaInput.oninput = function() {
+    textFromInput.innerHTML = textareaInput.value;
+  };
+  textareaLabel.appendChild(textareaInput);
+  textareaLabel.appendChild(textFromInput);
+  textarea.appendChild(textareaLabel);
+
   fieldset.appendChild(h4);
   fieldset.appendChild(beverageChooser);
   fieldset.appendChild(milk);
   fieldset.appendChild(extras);
+  fieldset.appendChild(textarea);
   formContainer.appendChild(fieldset);
 });
