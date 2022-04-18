@@ -1,4 +1,18 @@
-let lastSubForm = document.querySelector('form .beverage');
+function addListenersOnForm(form) {
+    let b = form.querySelector('.remove-beverage');
+    b.addEventListener("click", function(event) {
+        if (beverageCount - cancelledCount > 1) {
+            form.remove();
+            cancelledCount++;
+        }    
+    });
+}
+
+let form = document.querySelector('form');
+let addDrinkButton = form.querySelector('.add-button');
+let firstSubForm = document.querySelector('form .beverage');
+addListenersOnForm(firstSubForm);
+let templateSubForm = firstSubForm.cloneNode(true);
 let beverageCount = document.querySelectorAll('.beverage').length;
 let cancelledCount = 0;
 
@@ -16,23 +30,13 @@ function drinkPaides(count) {
 document.querySelector('.add-button')
     .addEventListener('click',
     function (event) {
-        let newSubForm = lastSubForm.cloneNode(true);
+        let newSubForm = templateSubForm.cloneNode(true);
         let header = newSubForm.querySelector('.beverage-count');
         header.textContent = `Напиток №${++beverageCount}`;
-        lastSubForm.after(newSubForm);
-        lastSubForm = newSubForm;
+        addDrinkButton.before(newSubForm);
+        addListenersOnForm(newSubForm);
+        firstSubForm = newSubForm;
     });
-
-
-let removeBeverageButton = document.querySelectorAll('.remove-beverage');
-for (let b of removeBeverageButton) {
-    b.addEventListener("click", function(event) {
-        if (beverageCount > 1) {
-            event.currentTarget.parentNode.remove();
-            cancelledCount++;
-        }    
-    })
-}
 
 let overlay = document.querySelector('.overlay');
 let lightbox = document.querySelector('.lightbox');
@@ -48,7 +52,7 @@ function overlay_off() {
 }
 
 let submitButton = document.querySelector('.submit-button');
-let form = document.querySelector('form');
+// let form = document.querySelector('form');
 submitButton.addEventListener("click", function(event) {
     overlay_on();
     lightbox.querySelector('div').textContent = `Заказ принят!
