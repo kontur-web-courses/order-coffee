@@ -36,7 +36,22 @@ let submitButton = document.querySelector('.submit-button');
 submitButton.addEventListener('click', (evt) => {
     evt.preventDefault();
     modal.style.display = 'block';
+    modal.querySelector('p').innerText = `Заказ принят!\nВы заказали ${beverageCounter} ${pluralize()}.`;
 });
+
+function pluralize() {
+    let lastDigit = beverageCounter % 10;
+    let secondDigitEnd = (beverageCounter - lastDigit) / 10 % 10;
+    if (secondDigitEnd !== 1) {
+        if (lastDigit === 1) {
+            return 'напиток';
+        }
+        if (lastDigit > 1 && lastDigit < 5) {
+            return 'напитка';
+        }
+    }
+    return 'напитков';
+}
 
 let modalCloseButton = document.querySelector('.close');
 modalCloseButton.addEventListener('click', (evt) => {
