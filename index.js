@@ -1,5 +1,6 @@
 let lastSubForm = document.querySelector('form .beverage');
 let beverageCount = document.querySelectorAll('.beverage').length;
+let cancelledCount = 0;
 
 function drinkPaides(count) {
     let dozens = Math.trunc(count / 10);
@@ -28,6 +29,7 @@ for (let b of removeBeverageButton) {
     b.addEventListener("click", function(event) {
         if (beverageCount > 1) {
             event.currentTarget.parentNode.remove();
+            cancelledCount++;
         }    
     })
 }
@@ -49,6 +51,8 @@ let submitButton = document.querySelector('.submit-button');
 let form = document.querySelector('form');
 submitButton.addEventListener("click", function(event) {
     overlay_on();
+    lightbox.querySelector('div').textContent = `Заказ принят!
+    Вы заказали ${beverageCount - cancelledCount} ${drinkPaides(beverageCount - cancelledCount)}`;
 });
 
 
