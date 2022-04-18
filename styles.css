@@ -1,6 +1,6 @@
 .overlay {
     position: fixed;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -12,6 +12,7 @@
   }
 
 .lightbox {
+    display: none;
     position: fixed;
     width: 640px;
     height: fit-content;
