@@ -1,4 +1,5 @@
 .beverage {
+    position: relative;
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
@@ -38,6 +39,12 @@
     cursor: pointer;
 }
 
+.delete-button {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
 .submit-button {
     font-size: 16px;
     padding: 7px 15px;
@@ -45,3 +52,36 @@
     border-radius: 5px;
 }
 
+#overlay {
+    border: aqua solid thick;
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    text-align: center;
+    align-content: center;
+    z-index: 1000;
+}
+
+body .blurBackground {
+    filter: blur(10px);
+}
+
+#overlay-close {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+table {
+    border: chocolate solid 30px;
+    margin: 0 auto;
+}
+
+td,
+th {
+    padding: 5px;
+    border: chocolate solid 30px;
+}
