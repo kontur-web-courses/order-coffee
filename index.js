@@ -54,8 +54,14 @@ function overlay_off() {
 let submitButton = document.querySelector('.submit-button');
 // let form = document.querySelector('form');
 submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
     overlay_on();
-    form.submit();
+    let text = document.createElement('p');
+    for (let f of new FormData(form).entries()){
+        console.log(f);
+    }
+    text.textContent = form.value;
+    lightbox.append(text);
     lightbox.querySelector('div').textContent = `Заказ принят!
     Вы заказали ${beverageCount - cancelledCount} ${drinkPaides(beverageCount - cancelledCount)}`;
 });
