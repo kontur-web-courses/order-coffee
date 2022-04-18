@@ -21,16 +21,23 @@ for (let b of removeBeverageButton) {
     })
 }
 
+let overlay = document.querySelector('.overlay');
+let lightbox = document.querySelector('.lightbox');
+
 function overlay_on() {
-    const overlay = document.querySelector('.overlay');
-    const lightbox = document.querySelector('.lightbox');
+    
     overlay.style.display = 'flex';
-    lightbox.style.display = 'block';
+    lightbox.style.display = 'flex';
 }
 
 function overlay_off() {
-    const overlay = document.querySelector('.overlay');
-    const lightbox = document.querySelector('.lightbox');
     overlay.style.display = 'none';
     lightbox.style.display = 'none';
 }
+
+let submitButton = document.querySelector('.submit-button');
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    overlay_on();
+});
+
