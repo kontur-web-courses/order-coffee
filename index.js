@@ -1,6 +1,17 @@
 let lastSubForm = document.querySelector('form .beverage');
 let beverageCount = document.querySelectorAll('.beverage').length;
 
+function drinkPaides(count) {
+    let dozens = Math.trunc(count / 10);
+    if (dozens % 10 === 1 || count % 10 >= 5 || count % 10 === 0) {
+        return 'напитков';
+    }
+    if (count % 10 === 1) {
+        return 'напиток';
+    }
+    return 'напитка';
+}
+
 document.querySelector('.add-button')
     .addEventListener('click',
     function (event) {
