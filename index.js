@@ -1,6 +1,21 @@
 let formCount = 1;
 let drinksCount = 1;
 
+let russianEnglishDictionary = {
+    "espresso": "Эспрессо",
+    "capuccino": "Капучино",
+    "cacao": "Какао",
+    "usual": "Обычное",
+    "no-fat": "Обезжиренное",
+    "soy": "Соевое",
+    "coconut": "Коксовое",
+    "whipped cream": "взбитые сливки",
+    "marshmallow": "зефирки",
+    "chocolate": "шоколад",
+    "cinnamon": "корица"
+}
+
+
 document.addEventListener('click', event =>{
     if(event.target.id === 'closeButton' && formCount>1){
         formCount--;
@@ -49,11 +64,16 @@ btn.onclick = function() {
     for(let fs of fss){
         let newRow = modal.querySelector('table').querySelector('tbody').insertRow();
         let cellName = newRow.insertCell();
-        cellName.appendChild(document.createTextNode(fs.querySelector('#name').options[fs.querySelector('#name').selectedIndex].textContent));
+        cellName.appendChild(document.createTextNode(russianEnglishDictionary[fs.querySelector('#name').options[fs.querySelector('#name').selectedIndex].value]));
         let cellMilk = newRow.insertCell();
-        cellMilk.appendChild(document.createTextNode(fs.querySelectorAll('input[type=radio]:checked')[0].parentElement.querySelector('span').textContent));
+        cellMilk.appendChild(document.createTextNode(russianEnglishDictionary[fs.querySelectorAll('input[type=radio]:checked')[0].value]));
         let cellAdditional = newRow.insertCell();
-        cellAdditional.appendChild(document.createTextNode([...fs.querySelectorAll('input[type=checkbox]:checked')].map(function(v) {return v.parentElement.querySelector('span').textContent}).join(', ')));
+        let selectedOptions = [...fs.querySelectorAll('input[type=checkbox]:checked')];
+        let cellContent = [];
+        for(option of selectedOptions){
+            cellContent.push(russianEnglishDictionary[option.value]);
+        }
+        cellAdditional.appendChild(document.createTextNode(cellContent.join(', ')));
     }
     modal.querySelector('p').textContent = DrinksOrdered();
 }
