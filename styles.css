@@ -2,6 +2,7 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    position: relative;
 }
 
 .beverage-count {
@@ -36,6 +37,19 @@
     font-size: 14px;
     text-decoration: underline dashed;
     cursor: pointer;
+}
+
+.remove-beverage {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    border: 0;
+    padding: 5px 15px;
+}
+
+.remove-beverage:hover {
+    background-color: rgb(196, 196, 196);
 }
 
 .submit-button {
