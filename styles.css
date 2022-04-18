@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .beverage {
     border: 1px solid #eee;
     margin: 15px 0;
@@ -44,4 +50,83 @@
     border: 2px solid orange;
     border-radius: 5px;
 }
+
+.modal-container {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: relative;
+    width: 640px;
+    min-height: 200px;
+    background-color: white;
+    padding: 20px;
+}
+
+.modal_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal_header{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.button_wrapper {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.order_submit {
+    font-size: 16px;
+    padding: 7px 15px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.label_time {
+    margin-top: 10px;
+    display: block;
+}
+
+#order_time {
+    margin-left: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px 15px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: block;
+}
+
 
