@@ -8,10 +8,10 @@
 <body>
 <form>
     <div class="coffee-list">
-        <div class="coffee-item">
+        <div class="coffee-item" id="coffee-item-0">
             <link rel="stylesheet" href="styles.css"/>
             <fieldset class="beverage">
-                <span id="closeForm" class="close">&times;</span>
+                <button id="closeForm" class="delete-item" data-coffee-item="coffee-item-0">&times;</button>
                 <h4 class="beverage-count">Напиток №1</h4>
                 <label class="field">
                     <span class="label-text">Я буду</span>
@@ -73,7 +73,7 @@
 </form>
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <span id="close" class="close">&times;</span>
+        <span id="close" class="delete-item">&times;</span>
         <p>"Заказ принят!"</p>
         <div>
             <table>
