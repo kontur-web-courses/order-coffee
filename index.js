@@ -8,3 +8,8 @@ document.querySelector('.add-button').addEventListener("click", ()=>{
         radio.name = 'milk' + newNumberDrink;
     forms[forms.length - 1].after(newForm);
 });
+
+function remove(smt){
+    if(document.querySelectorAll('.beverage').length > 1)
+        smt.parentElement.remove();
+}
