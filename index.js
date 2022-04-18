@@ -35,8 +35,10 @@ let modal = document.getElementById('myModal');
 let submitButton = document.querySelector('.submit-button');
 submitButton.addEventListener('click', (evt) => {
     evt.preventDefault();
+    const formData = new FormData(evt.target.closest('form'));
+    const formProps = Object.fromEntries(formData);
     modal.style.display = 'block';
-    modal.querySelector('p').innerText = `Заказ принят!\nВы заказали ${beverageCounter} ${pluralize()}.`;
+    modal.querySelector('p').innerText = `Заказ принят!\nВы заказали ${beverageNameCounter} ${pluralize()}.`;
 });
 
 function pluralize() {
