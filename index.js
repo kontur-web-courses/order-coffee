@@ -23,7 +23,7 @@ document.querySelector('.add-button')
     });
 
 
-let removeBeverageButton = document.getElementsByClassName('remove-beverage');
+let removeBeverageButton = document.querySelectorAll('.remove-beverage');
 for (let b of removeBeverageButton) {
     b.addEventListener("click", function(event) {
         if (beverageCount > 1) {
@@ -36,7 +36,6 @@ let overlay = document.querySelector('.overlay');
 let lightbox = document.querySelector('.lightbox');
 
 function overlay_on() {
-    
     overlay.style.display = 'flex';
     lightbox.style.display = 'flex';
 }
@@ -47,8 +46,11 @@ function overlay_off() {
 }
 
 let submitButton = document.querySelector('.submit-button');
+let form = document.querySelector('form');
 submitButton.addEventListener("click", function(event) {
-    event.preventDefault();
     overlay_on();
 });
+
+
+let orderTable = document.createElement('table');
 
