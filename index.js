@@ -51,10 +51,10 @@ let submitButton = document.querySelector('.submit-button');
 let form = document.querySelector('form');
 submitButton.addEventListener("click", function(event) {
     overlay_on();
+    form.submit();
     lightbox.querySelector('div').textContent = `Заказ принят!
     Вы заказали ${beverageCount - cancelledCount} ${drinkPaides(beverageCount - cancelledCount)}`;
 });
 
 
 let orderTable = document.createElement('table');
-
