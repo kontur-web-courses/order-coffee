@@ -45,3 +45,19 @@
     border-radius: 5px;
 }
 
+#order-submitted {
+    width: 500px;
+    height: 10%;
+}
+
+.dark_background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:0;
+    left:0;
+    position: fixed;
+    background-color: rgba(0,0,0,.5);
+    height:100%;
+    width: 100%;
+}
