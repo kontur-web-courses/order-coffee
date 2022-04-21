@@ -35,7 +35,6 @@ modalCloseBtn.addEventListener('click', function () {
 document.querySelector('.submit-button')
     .addEventListener('click', function (event) {
         let counter =document.querySelectorAll('.del-button').length;
-        let text = '';
         if (counter % 10 === 1 && (counter < 10 || counter > 20)) {
             text = `Вы заказали ${counter} напиток`;
         } else if (counter % 10 > 1 && counter % 10 < 5 &&(counter < 10 || counter > 20)) {
@@ -70,6 +69,7 @@ document.querySelector('.submit-button')
                 }
             }
         }
+
         modalWindow.style.display = 'block';
         event.preventDefault();
     })
