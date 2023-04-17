@@ -1,3 +1,23 @@
+function createTable(tableData) {
+    var table = document.createElement('table');
+    var tableBody = document.createElement('tbody');
+
+    tableData.forEach(function(rowData) {
+        var row = document.createElement('tr');
+
+        rowData.forEach(function(cellData) {
+            var cell = document.createElement('td');
+            cell.appendChild(document.createTextNode(cellData));
+            row.appendChild(cell);
+        });
+
+        tableBody.appendChild(row);
+    });
+
+    table.append(tableBody);
+    document.querySelector(".modal-content").appendChild(table);
+}
+
 function declensionOfWord(num) {
     const word = 'напиток';
     let result;
@@ -51,14 +71,22 @@ openModalBtn.onclick = function(e) {
     modal.style.display = "block";
     c.innerText = declensionOfWord(forms.length);
     modal.querySelector("h2").after(c);
+    const arr1 = [];
     for (const form1 of forms) {
         let f = document.createElement("form");
         f.append(form1.cloneNode(true));
-        console.log(...(new FormData(f)));
+        const arr2 = [];
+        for(let j of new FormData(f)){
+            arr2.push(j[1]);
+        }
+        arr1.push(arr2);
     }
+    console.log(arr1);
+    createTable(arr1);
 }
 
 closeBtn.onclick = function() {
+    document.querySelector('table').remove();
     modal.style.display = "none";
 }
 
