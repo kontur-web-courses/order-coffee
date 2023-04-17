@@ -1,10 +1,15 @@
-for (let button of document.querySelectorAll(".close-button")) {
-    button.addEventListener("click", function (event) {
-       const count = document.querySelectorAll("form").length;
-       if (count > 1) {
-           button.closest("form").remove();
-       }
-    });
+for (let e of document.querySelectorAll(".beverage")) {
+    addCloseButtonAction(e);
+}
+
+function addCloseButtonAction(a) {
+    const button = a.querySelector(".close-button");
+    button.onclick = function (event) {
+        if (orderCount > 1) {
+            orderCount--;
+            button.closest(".beverage").remove();
+        }
+    };
 }
 
 for (let area of document.querySelectorAll("textarea")) {
@@ -18,6 +23,10 @@ for (let area of document.querySelectorAll("textarea")) {
             return `<b>${value}</b> `;
         }
 
+        function toStripped(word) {
+            return word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+        }
+
         let content = "";
         const len = s.length;
         let needSkip = false;
@@ -29,21 +38,19 @@ for (let area of document.querySelectorAll("textarea")) {
             }
             if (i !== len - 1) {
                 const phrase = s[i] + " " + s[i+1];
-                if (boldWords2.includes(phrase)) {
+                if (boldWords2.includes(toStripped(phrase))) {
                     content += toBold(phrase);
                     needSkip = true;
                     continue;
                 }
             }
 
-            const word = s[i];
-
-            if (!boldWords.includes(word)) {
-                content += word + " ";
+            if (!boldWords.includes(toStripped(s[i]))) {
+                content += s[i] + " ";
                 continue;
             }
 
-            content += toBold(word);
+            content += toBold(s[i]);
         }
 
         area.closest(".extra-input").querySelector(".bold-output").remove();
@@ -103,7 +110,10 @@ function updateTable() {
 
 let exampleOrder = document.querySelector('.beverage').cloneNode(true);
 document.querySelector('.add-button')
-    .addEventListener('click', () => createNewForm());
+    .addEventListener('click', function (event) {
+        const form = createNewForm();
+        addCloseButtonAction(form);
+    });
 
 function createNewForm(){
     let beverages = document.querySelectorAll('.beverage');
@@ -130,6 +140,8 @@ function createNewForm(){
     newOrder.querySelector('.beverage-count').innerText = `Напиток №${orderCount}`;
 
     last.after(newOrder);
+
+    return newOrder;
 }
 
 function getFormData(){
