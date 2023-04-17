@@ -26,7 +26,8 @@ document.querySelector(".add-button").addEventListener("click", function () {
     beverage[beverage.length - 1].after(clone);
 })
 
-document.querySelector(".submit-button").addEventListener("click", function () {
+document.querySelector(".submit-button").addEventListener("click", function (ev) {
+    ev.preventDefault();
     let lb = document.querySelector(".lightbox");
     document.querySelector(".overlay").style.display = "flex";
     const p = document.createElement('p');
@@ -41,12 +42,14 @@ document.querySelector(".submit-button").addEventListener("click", function () {
     for (const beverage of beverages) {
         const tr = document.createElement('tr');
         const td1 = document.createElement('td');
+        console.log(beverage.elements)
         td1.textContent = beverage.querySelector('[name="type-coffee"]').value
 
         tr.appendChild(td1)
 
         const td2 = document.createElement('td');
         td2.textContent = beverage.querySelector('[name="milk"]').value
+        beverage.querySelector('*[name="milk"]').
 
         tr.appendChild(td2);
 
@@ -60,5 +63,6 @@ document.querySelector(".submit-button").addEventListener("click", function () {
 
 function closeBox() {
     document.querySelector(".overlay").style.setProperty("display", "none");
+
 }
 
