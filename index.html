@@ -11,47 +11,47 @@
         <h4 class="beverage-count">Напиток №1</h4>
         <label class="field">
           <span class="label-text">Я буду</span>
-          <select>
+          <select class="coffee">
             <option value="espresso">Эспрессо</option>
-            <option value="capuccino" selected>Капучино</option>
+            <option value="capuccino">Капучино</option>
             <option value="cacao">Какао</option>
           </select>
         </label>
         <div class="field">
           <span class="checkbox-label">Сделайте напиток на</span>
           <label class="checkbox-field">
-            <input type="radio" name="milk" value="usual" checked />
+            <input type="radio" name="milk" value="usual" checked class="milk"/>
             <span>обычном молоке</span>
           </label>
           <label class="checkbox-field">
-            <input type="radio" name="milk" value="no-fat" />
+            <input type="radio" name="milk" value="no-fat" class="milk"/>
             <span>обезжиренном молоке</span>
           </label>
           <label class="checkbox-field">
-            <input type="radio" name="milk" value="soy" />
+            <input type="radio" name="milk" value="soy" class="milk"/>
             <span>соевом молоке</span>
           </label>
           <label class="checkbox-field">
-            <input type="radio" name="milk" value="coconut" />
+            <input type="radio" name="milk" value="coconut"  class="milk"/>
             <span>кокосовом молоке</span>
           </label>
         </div>
         <div class="field">
           <span class="checkbox-label">Добавьте к напитку:</span>
           <label class="checkbox-field">
-            <input type="checkbox" name="options" value="whipped cream" />
+            <input type="checkbox" name="options" value="whipped cream" class="extra"/>
             <span>взбитых сливок</span>
           </label>
           <label class="checkbox-field">
-            <input type="checkbox" name="options" value="marshmallow" />
+            <input type="checkbox" name="options" value="marshmallow" class="extra"/>
             <span>зефирок</span>
           </label>
           <label class="checkbox-field">
-            <input type="checkbox" name="options" value="chocolate" />
+            <input type="checkbox" name="options" value="chocolate" class="extra"/>
             <span>шоколад</span>
           </label>
           <label class="checkbox-field">
-            <input type="checkbox" name="options" value="cinnamon" />
+            <input type="checkbox" name="options" value="cinnamon" class="extra"/>
             <span>корицу</span>
           </label>
         </div>
@@ -68,6 +68,15 @@
     <div id="modal" class="hidden">
       <button id="close-btn">&times;</button>
       <p id="count_beverage">Заказ принят!</p>
+      <table>
+        <thead>
+        <tr>
+          <th>Напиток</th>
+          <th>Молоко</th>
+          <th>Дополнительно</th>
+        </tr>
+        </thead>
+      </table>
     </div>
 
 

@@ -8,6 +8,9 @@ const closeBtn = document.getElementById("close-btn");
 let differentValues = new Set([2, 3, 4]);
 let differentValues2 = new Set([12, 13, 14]);
 let differentValues3 = new Set([1]);
+let coffeesDict = {"espresso":"Эспрессо", "capuccino": "Капуччино", "cacao": "Какао"};
+milksDict = {"usual": "обычное", "no-fat": "обезжиренное", "soy": "соевое", "coconut": "кокосовое"};
+extrasDict = {"whipped cream": "взбитые сливки", "marshmallow": "зефирки", "chocolate": "шоколад", "cinnamon": "корица"};
 
 
 doneBtn.addEventListener("click", (e) => {
@@ -23,6 +26,36 @@ doneBtn.addEventListener("click", (e) => {
     }
     else {
         p.textContent = `Вы заказали ${numBeverages} напитков`;
+    }
+    let beverages = document.getElementsByClassName('beverage');
+    for (let i = 0; i < beverages.length; i++) {
+        let beverage = beverages[i];
+        let body = document.createElement('tbody');
+        let row = document.createElement('tr');
+        let coffee = beverage.querySelector('.coffee');
+        let td = document.createElement('td');
+        td.textContent = `${coffeesDict[coffee.value]}`;
+        row.appendChild(td);
+        let milks = beverage.querySelectorAll('.milk');
+        milks.forEach((milk) => {
+            if (milk.checked) {
+                let td = document.createElement('td');
+                td.textContent = `${milksDict[milk.value]}`;
+                row.appendChild(td);
+            }
+        });
+        let extras = beverage.querySelectorAll('.extra');
+        let queryArray = [];
+        extras.forEach((extra) => {
+            if (extra.checked) {
+                queryArray.push(extrasDict[extra.value]);
+            }});
+        let td2 = document.createElement('td');
+        td2.textContent = `${queryArray.join(', ')}`;
+        row.appendChild(td2);
+        body.appendChild(row);
+        let table = document.querySelector('table');
+        table.appendChild(body);
     }
 });
 addBeverageButton.addEventListener('click', addBeverage);
@@ -40,10 +73,24 @@ function addBeverage() {
 modalOverlay.addEventListener("click", function() {
     modalOverlay.classList.add("hidden");
     modal.classList.add("hidden");
+    let bodies = document.querySelectorAll('tbody');
+    let emptyBody = document.createElement('tbody');
+    for (let i = 0; i < bodies.length; i++) {
+        bodies[i].remove();
+    }
+    let table = document.querySelector('table');
+    table.appendChild(emptyBody);
 });
 
 closeBtn.addEventListener("click", function() {
     modalOverlay.classList.add("hidden");
     modal.classList.add("hidden");
+    let bodies = document.querySelectorAll('tbody');
+    let emptyBody = document.createElement('tbody');
+    for (let i = 0; i < bodies.length; i++) {
+        bodies[i].remove();
+    }
+    let table = document.querySelector('table');
+    table.appendChild(emptyBody);
 });
 
