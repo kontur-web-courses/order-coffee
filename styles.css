@@ -65,4 +65,7 @@
     padding: 20px;
 }
 
-
+.remove-beverage {
+    float: right;
+    overflow: hidden;
+}
