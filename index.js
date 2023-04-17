@@ -5,7 +5,8 @@ const doneBtn = document.getElementById("submit-button");
 const modalOverlay = document.getElementById("modal-overlay");
 const modal = document.getElementById("modal");
 const addBeverageButton = document.querySelector('.add-button');
-const beveragePrototype = document.querySelector('.beverage').cloneNode(true);
+const firstBeverage = document.querySelector('.beverage');
+const beveragePrototype = firstBeverage.cloneNode(true);
 const closeBtn = document.getElementById("close-btn");
 let differentValues = new Set([2, 3, 4]);
 let differentValues2 = new Set([11, 12, 13, 14]);
@@ -39,6 +40,7 @@ closeBtn.addEventListener("click", function() {
 
 addBeverageButton.addEventListener('click', addBeverage);
 initBeverage(beveragePrototype);
+initBeverage(firstBeverage);
 
 function initBeverage(beverage) {
     const clonedCountObj = beverage.querySelectorAll(".beverage-count")[0];
@@ -70,7 +72,7 @@ function removeBeverage(e) {
     if(curNumBeverages <= 1) {
         return;
     }
-
+  
     const bev = e.target.parentNode;
     bev.parentNode.removeChild(bev);
     curNumBeverages--;
