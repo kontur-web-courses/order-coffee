@@ -8,12 +8,20 @@ updateModalText();
 
 addButton.addEventListener('click', () => {
   const newBeverage = previousBeverage.cloneNode(true);
+  renameRadioButtons(newBeverage, beverageCount);
   beverageCount++;
   newBeverage.querySelector('.beverage-count').textContent = `Напиток №${beverageCount}`;
   previousBeverage.after(newBeverage);
   previousBeverage = newBeverage;
-    updateModalText();
+  updateModalText();
 });
+
+function renameRadioButtons(beverage, index) {
+    const buttons = beverage.querySelectorAll('input[type=radio]');
+    for(const button of buttons) {
+        button.name = 'milk' + index;
+    }
+}
 
 
 const submitButton = document.querySelector('.submit-button');
