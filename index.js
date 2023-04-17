@@ -27,9 +27,13 @@ button.addEventListener("click", () => {
 
     forms.push(temp);
     form.prepend(...forms);
-})
+});
+
+let event = new Event("click");
+button.dispatchEvent(event);
 
 function remove(el) {
+    if (forms.length <= 1) return;
     let fieldset = el.parentNode.parentNode;
     const index = forms.indexOf(fieldset);
     forms.splice(index, 1);
@@ -40,12 +44,12 @@ function remove(el) {
 const openModalBtn = document.getElementById("open-modal-button");
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementsByClassName("close")[0];
+let c = document.createElement("p");
 
 openModalBtn.onclick = function(e) {
     e.preventDefault();
     modal.style.display = "block";
-    let c = document.createElement("p");
-    c.innerText = declensionOfWord(count);
+    c.innerText = declensionOfWord(forms.length);
     modal.querySelector("h2").after(c);
 }
 
