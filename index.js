@@ -66,29 +66,30 @@ createDrinkButton.addEventListener('click', createModalWindow);
 modalCloseButton.addEventListener('click', modalClose)
 
 function updateNodeCounter(node, lambda) {
-    node.firstChild.nextSibling.firstChild.textContent = node.firstChild.nextSibling.firstChild.textContent.slice(0, -1)
-        + lambda(+node.firstChild.nextSibling.firstChild.textContent.at(-1));
+    node.querySelector('.beverage-count').textContent = node.querySelector('.beverage-count').textContent.slice(0, -1)
+        + lambda(+node.querySelector('.beverage-count').textContent.at(-1));
 }
 
 function addRemoveEvent(newElement) {
-    newElement.firstChild.nextSibling.nextSibling.nextSibling.firstChild.addEventListener('click', () => removeNodeEvent(newElement.firstChild.nextSibling.nextSibling.nextSibling.firstChild));
+    newElement.querySelector('.remove-button').addEventListener('click', () => removeNodeEvent(newElement.querySelector('.remove-button')));
 }
 
 function updateText(node, text) {
-    text = text.replace('\n', '<br>')
-    text = text.replace('срочно', '<b>срочно</b>')
-    text = text.replace('быстрее', '<b>быстрее</b>')
-    text = text.replace('побыстрее', '<b>побыстрее</b>')
-    text = text.replace('скорее', '<b>скорее</b>')
-    text = text.replace('поскорее', '<b>поскорее</b>')
-    text = text.replace('очень нужно', '<b>очень нужно</b>')
-    node.innerHTML = '';
+    text = text.replaceAll('\n', '<br>')
+    text = text.replaceAll('срочно', '<b>срочно</b>')
+    text = text.replaceAll('быстрее', '<b>быстрее</b>')
+    text = text.replaceAll('побыстрее', '<b>побыстрее</b>')
+    text = text.replaceAll('скорее', '<b>скорее</b>')
+    text = text.replaceAll('поскорее', '<b>поскорее</b>')
+    text = text.replaceAll('очень нужно', '<b>очень нужно</b>')
     let element = document.createElement('div')
     element.innerHTML = text;
-    node.parentNode.insertBefore(element, node.nextSibling)
+    if (node.firstChild !== null)
+        node.firstChild.remove();
+    node.appendChild(element)
 }
 
 function addOnChangeEvent(node) {
-    node.firstChild.nextSibling.lastChild.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.addEventListener('change', () => updateText(node.firstChild.nextSibling.lastChild.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling, node.firstChild.nextSibling.lastChild.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.value));
+    node.querySelector('.anything-else').addEventListener('change', () => updateText(node.querySelector('.anything-else-value'), node.querySelector(".anything-else-area").value));
 
 }
