@@ -1,3 +1,14 @@
+function getRightDrinks(drinksCount){
+    const napitka = [2, 3, 4]
+    const napitka100 = [12, 13, 14]
+    if (drinksCount % 10 === 1 && drinksCount % 100 !== 11)
+        return 'напиток';
+    else if (drinksCount % 10 in napitka && drinksCount % 100 in napitka100)
+        return 'напитка';
+    return 'напитков'
+}
+
+
 let count = 1;
 const button = document.querySelector('.add-button');
 const readyButton = document.querySelector('.submit-button');
@@ -8,6 +19,7 @@ modal.querySelector('.hystmodal__close').addEventListener('click',
     modal.style.display = 'none';
     })
 readyButton.addEventListener('click', function (){
+    modal.querySelector('.accept').textContent = `Вы заказали ${count} ${getRightDrinks(count)}!`;
     modal.style.display = 'flex';
 });
 
