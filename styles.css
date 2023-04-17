@@ -82,6 +82,12 @@
     display: flex;
     justify-content: center;
     width: fit-content;
+    border-radius: 8px;
+}
+
+.buttons div :hover {
+    background: #dddddd;
+    border-radius: 4px;
 }
 
 .modal {

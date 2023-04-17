@@ -21,7 +21,7 @@ button.addEventListener("click", () => {
     temp.classList.remove("hidden")
     temp.querySelector("h4").innerText = `Напиток №${++count}`;
 
-    for (const input of temp.querySelectorAll("input")) {
+    for (const input of temp.querySelectorAll("input, select")) {
         input.name += count;
     }
 
@@ -51,6 +51,11 @@ openModalBtn.onclick = function(e) {
     modal.style.display = "block";
     c.innerText = declensionOfWord(forms.length);
     modal.querySelector("h2").after(c);
+    for (const form1 of forms) {
+        let f = document.createElement("form");
+        f.append(form1.cloneNode(true));
+        console.log(...(new FormData(f)));
+    }
 }
 
 closeBtn.onclick = function() {
@@ -62,5 +67,8 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
+
 
 
