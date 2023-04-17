@@ -93,8 +93,8 @@ document.getElementsByClassName("overlay")[0].style.setProperty("display", "none
 document.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(fieldsets[0]));
 document.getElementsByClassName("add-button")[0].addEventListener("click", () => createNewFieldSet());
 document.getElementsByClassName("submit-button")[0].addEventListener("click", () => callModalWindow());
-cloneText = (textarea) =>{
+cloneText = (textarea,parent) =>{
 
-    document.getElementsByClassName("comment")[0].innerHTML =textarea.value.replace(/(срочно)|(быстрее)|(побыстрее)|(скорее)|(поскорее)|(очень нужно)/gi, "<b>$&</b>");
+    parent.getElementsByClassName("comment")[0].innerHTML =textarea.value.replace(/(срочно)|(быстрее)|(побыстрее)|(скорее)|(поскорее)|(очень нужно)/gi, "<b>$&</b>");
 
 }
