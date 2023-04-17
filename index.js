@@ -12,3 +12,18 @@ addButton.addEventListener('click', () => {
   previousBeverage.after(newBeverage);
   previousBeverage = newBeverage;
 });
+
+
+const submitButton = document.querySelector('.submit-button');
+const modal = document.querySelector('.modal-overlay');
+
+submitButton.addEventListener('click', event => {
+    modal.style.display = 'block';
+    event.preventDefault();
+});
+
+const closeButton = document.querySelector('.modal-close');
+
+closeButton.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
