@@ -102,6 +102,12 @@ function fillDrinksTableInfo() {
         let addCell = newRow.insertCell(2);
         let addText = document.createTextNode(extra.join(', '));
         addCell.appendChild(addText);
+
+        let wish = drink.elements[9].value;
+
+        let wishCell = newRow.insertCell(3);
+        let wishText = document.createTextNode(wish);
+        wishCell.appendChild(wishText);
     }
 }
 
