@@ -18,7 +18,7 @@ function createNewFieldSet() {
     let id = fieldsCount++;
     newFieldset.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(newFieldset));
     newFieldset.getElementsByTagName("h4")[0].innerText = `Напиток №${id + 1}`;
-    newFieldset.getElementsByClassName("comment")[0].innerHTML="";
+    newFieldset.getElementsByClassName("comment")[0].innerHTML = "";
     fieldsets.push(newFieldset);
     div.appendChild(newFieldset)
     console.log(fieldsCount);
@@ -93,6 +93,7 @@ function callModalWindow() {
 
 function removeModalWindow() {
     document.getElementsByClassName("overlay")[0].style.setProperty("display", "none");
+    document.querySelector('input[type="time"]').style.background = '';
 }
 
 document.getElementById("modalWindowCloseButton" + "").addEventListener("click", () => removeModalWindow());
@@ -100,12 +101,20 @@ document.getElementsByClassName("overlay")[0].style.setProperty("display", "none
 document.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(fieldsets[0]));
 document.getElementsByClassName("add-button")[0].addEventListener("click", () => createNewFieldSet());
 document.getElementsByClassName("submit-button")[0].addEventListener("click", () => callModalWindow());
-document.getElementsByClassName("orderButton")[0].addEventListener("click", () =>{
-    let time = document.getElementById('time');
-    if (time.time>=Date.now()){
-        time.style.border='red';
-    }
-    else{
-        removeModalWindow();
+document.getElementsByClassName("orderButton")[0].addEventListener("click", () => {
+    let time = document.getElementById('time').value.split(':');
+    let h = time[0];
+    let m = time[1];
+    let nH = new Date().getHours();
+    let nM = new Date().getMinutes();
+
+    if (h > nH || m > nM) {
+        if (h > nH)
+            removeModalWindow();
+        else if (h === nH && m >= nM)
+            removeModalWindow();
+    } else {
+        document.querySelector('input[type="time"]').style.background = 'red';
+
     }
 });
