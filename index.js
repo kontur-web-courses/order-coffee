@@ -91,15 +91,41 @@ function createNewForm(){
     let last = beverages[beverages.length-1];
     let newOrder = exampleOrder.cloneNode(true);
     orderCount++;
-
-    for (let querySelectorElement of newOrder.querySelector('div.field').childNodes) {
+    let tmp = newOrder.querySelectorAll('div.field');
+    for (let querySelectorElement of tmp[0].childNodes) {
         for (let querySelectorElementElement of querySelectorElement.childNodes) {
             querySelectorElementElement.name = `milk${orderCount}`;
         }
     }
-    // newOrder.getElementsByName(`milk${orderCount}`).forEach(x => x.name = `milk${++orderCount}`);
+
+    for (let querySelectorElement of tmp[1].childNodes) {
+        for (let querySelectorElementElement of querySelectorElement.childNodes) {
+            querySelectorElementElement.name = `options${orderCount}`;
+        }
+    }
+
+    newOrder.querySelector('select').name = `coffee${orderCount}`;
+
+    newOrder.querySelector('textarea').name = `textarea${orderCount}`;
 
     newOrder.querySelector('.beverage-count').innerText = `Напиток №${orderCount}`;
 
     last.after(newOrder);
 }
+
+function getFormData(){
+    let form = document.querySelector('form');
+    let result = [];
+    for (let i = 1; i <= orderCount; i++) {
+        let formData = new FormData(form);
+        let element = {};
+        element.coffee = formData.get(`coffee${i}`);
+        element.milk = formData.get(`milk${i}`);
+        element.options = formData.getAll(`options${i}`).join(', ');
+        element.userInput = formData.get(`textarea${i}`);
+        result.push(element);
+    }
+    return result;
+}
+
+
