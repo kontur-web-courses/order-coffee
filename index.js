@@ -1,10 +1,15 @@
 function getRightDrinks(drinksCount){
     const napitka = [2, 3, 4]
-    const napitka100 = [12, 13, 14]
-    if (drinksCount % 10 === 1 && drinksCount % 100 !== 11)
+    const napitka100 = [12, 13, 14, 2, 3, 4]
+    const mod10 = drinksCount % 10;
+    const mod100 = drinksCount % 100;
+    if (mod10 === 1 && mod100 !== 11)
         return 'напиток';
-    else if (drinksCount % 10 in napitka && (drinksCount % 100 in napitka100 || drinksCount % 100 < 10))
+    else if (napitka.includes(mod10) && napitka100.includes(mod100)){
+        if (mod100 > 10 && mod100 < 20)
+            return 'напитков';
         return 'напитка';
+        }
     return 'напитков'
 }
 
@@ -26,6 +31,7 @@ function Delete(button)
 {
     const beverageFieldset = button.parentElement;
     if (count > 1) {
+        fieldset = beverageFieldset.previousSibling;
         beverageFieldset.remove();
         count--;
         console.log(count)
