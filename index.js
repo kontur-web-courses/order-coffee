@@ -4,6 +4,8 @@ const doneBtn = document.getElementById("submit-button");
 const modalOverlay = document.getElementById("modal-overlay");
 const modal = document.getElementById("modal");
 const addBeverageButton = document.querySelector('.add-button');
+const closeBtn = document.getElementById("close-btn");
+
 
 doneBtn.addEventListener("click", (e) => {
     console.log(modal, modalOverlay);
@@ -21,3 +23,14 @@ function addBeverage() {
     const form = document.getElementsByTagName('form')[0];
     form.insertBefore(clonedBeverage, form.children[form.children.length-1]);
 }
+
+modalOverlay.addEventListener("click", function() {
+    modalOverlay.classList.add("hidden");
+    modal.classList.add("hidden");
+});
+
+closeBtn.addEventListener("click", function() {
+    modalOverlay.classList.add("hidden");
+    modal.classList.add("hidden");
+});
+
