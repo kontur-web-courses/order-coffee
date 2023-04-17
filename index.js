@@ -20,6 +20,7 @@ addButton.onclick = function () {
         if (e.className === 'close-button') {
             e.onclick = function () {
                 node.remove();
+                count--;
             }
         }
     }
