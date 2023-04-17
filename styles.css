@@ -6,6 +6,7 @@
 
 .beverage-count {
     margin: 0 0 15px;
+    display: inline-flex;
 }
 
 .field {
@@ -45,3 +46,11 @@
     border-radius: 5px;
 }
 
+.form-close {
+    display: inline-flex;
+    padding-left: 50px;
+    justify-content: flex-end;
+}
+
+.form-header {
+}
