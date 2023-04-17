@@ -1,3 +1,16 @@
+function declensionOfWord(num) {
+    const word = 'напиток';
+    let result;
+    if (num % 10 === 1 && num % 100 !== 11) {
+        result = `${num} ${word}`;
+    } else if (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)) {
+        result = `${num} ${word}а`;
+    } else {
+        result = `${num} ${word}ов`;
+    }
+    return `Вы заказали ${result}`;
+}
+
 let template = document.getElementById("template");
 let form = document.getElementById("form")
 let forms = [];
