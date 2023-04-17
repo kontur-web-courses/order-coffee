@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
 <div class="popup__bg">
     <div class="popup">
         <span class="delete-button">&times;</span>
         Заказ принят!
+        <table id="show">
+
+            <tr>
+                <th>Напиток</th>
+                <th>Молоко</th>
+                <th>Дополнительно</th>
+            </tr>
+
+        </table>
     </div>
 </div>
 <form>
@@ -20,9 +28,9 @@
         <label class="field">
             <span class="label-text">Я буду</span>
             <select>
-                <option value="espresso">Эспрессо</option>
-                <option value="capuccino" selected>Капучино</option>
-                <option value="cacao">Какао</option>
+                <option value="espresso" name="type">Эспрессо</option>
+                <option value="capuccino" name="type" selected>Капучино</option>
+                <option value="cacao" name="type">Какао</option>
             </select>
         </label>
         <div class="field">
@@ -70,6 +78,8 @@
     <div style="margin-top: 30px">
         <button type="submit" class="submit-button">Готово</button>
     </div>
+
+
 </form>
 
 <script src="index.js"></script>
