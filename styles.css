@@ -45,3 +45,27 @@
     border-radius: 5px;
 }
 
+#overlay {
+    position: fixed;    
+    width: 100%;
+    height: 100%;    
+    top: 0;
+    left: 0;    
+    right: 0;
+    bottom: 0;    
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    background-color: rgba(0,0,0,0.5);    
+    z-index: 1;
+}
+.lightbox {
+    width: 640px;    
+    z-index: 2;
+    background-color: white;    
+    padding: 10px;
+}
+
+#modal-close-button {    
+    margin: auto 620px;
+}
