@@ -8,7 +8,10 @@
   <body>
     <form>
       <fieldset class="beverage">
-        <h4 class="beverage-count">Напиток №1</h4>
+        <div  class="number">
+          <h4 class="beverage-count">Напиток №1</h4>
+          <button class="del-button">x</button>
+        </div>
         <label class="field">
           <span class="label-text">Я буду</span>
           <select>
@@ -55,12 +58,35 @@
             <span>корицу</span>
           </label>
         </div>
+        <label>
+          И еще вот что
+          <textarea name="others"></textarea>
+        </label>
+        <p class="user-comment"></p>
       </fieldset>
-      <div>
+      <div class="add-button-container">
         <button type="button" class="add-button">+ Добавить напиток</button>
       </div>
       <div style="margin-top: 30px">
         <button type="submit" class="submit-button">Готово</button>
+      </div>
+
+      <div id="modalWindow" class="modal">
+        <div class="modal-content">
+          <span id="closeButton" class="close">&times;</span>
+          <p class="count-orger"></p>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Напиток</th>
+              <th>Молоко</th>
+              <th>Дополнительно</th>
+            </tr></thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </form>
 
