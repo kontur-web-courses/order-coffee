@@ -1,5 +1,6 @@
 let formsCount = 1;
 let currFormNum = 1
+let chosenCount = 1;
 
 function addToCrossCloseEvent(cross){
     cross.addEventListener('click', () => {
@@ -34,6 +35,7 @@ function AddNewForm() {
     let submitButton = form.getElementsByClassName('submit-button')[0];
     submitButton.addEventListener('click', function(event) { event.preventDefault(); });
     submitButton.addEventListener('click', () => openModal());
+    submitButton.addEventListener('click', () => AddDrinkToTable(form));
     addToCrossCloseEvent(cross);
     button.addEventListener('click', AddNewForm);
     header.textContent = `Напиток №${++currFormNum}`;
@@ -47,12 +49,33 @@ function closeModal() {
 function openModal() {
     let modalWindow = document.querySelector('.modal__container');
     modalWindow.getElementsByTagName('p')[0]
-        .textContent = `Вы заказали ${formsCount} ${getCorrectFormToNapitok(formsCount)}`;
+        .textContent = `Вы заказали ${chosenCount} ${getCorrectFormToNapitok(chosenCount)}`;
 
     document.querySelectorAll('.modal__container').forEach(overlay => {
         overlay.style.display = 'block';
         overlay.style.visibility = 'visible';
     })
+}
+
+function AddDrinkToTable(form) {
+    chosenCount++;
+    let formData = new FormData(form);
+    let drink = formData.get('drink');
+    let milk = formData.get('milk');
+    let options = formData.get('options');
+
+    let newRow = document.createElement('tr');
+    let drinkTd = document.createElement('td');
+    drinkTd.textContent = drink;
+    let milkTd = document.createElement('td');
+    milkTd.textContent = milk;
+    let optionsTd = document.createElement('td');
+    optionsTd.textContent = options;
+    newRow.append(drinkTd);
+    newRow.append(milkTd);
+    newRow.append(optionsTd);
+
+    document.getElementsByTagName('tbody')[0].append(newRow);
 }
 
 addToCrossCloseEvent(document.getElementsByClassName('form-close')[0]);
@@ -61,8 +84,10 @@ let addButton = document.getElementsByClassName('add-button')[0];
 addButton.addEventListener('click', AddNewForm);
 
 let submitButton = document.getElementsByClassName('submit-button')[0];
+let form = document.getElementsByTagName('form')[0];
 submitButton.addEventListener('click', function(event) { event.preventDefault(); });
 submitButton.addEventListener('click', () => openModal());
+submitButton.addEventListener('click', () => AddDrinkToTable(form));
 
 document.querySelectorAll('.modal__close').forEach(closeButton => {
     closeButton.addEventListener('click', () => closeModal())

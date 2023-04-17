@@ -56,6 +56,24 @@
 
 }
 
+.drink-table {
+    border-collapse: collapse;
+
+}
+.drink-table td {
+    border : 1px solid gray;
+    padding: 10px 20px;
+}
+
+.drink-table-column-name {
+    font-weight: bold;
+
+}
+
+.modalBackground {
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+}
 .modal__container {
     visibility: hidden;
     position: fixed;
@@ -89,4 +107,22 @@
     font-size: 20px;
     color: #686868;
     cursor: pointer;
+    /* указываем z-индекс для корректного наслаивания */
+    z-index: 1;
+}
+
+.modalActive {
+    position: absolute;
+    width: 350px;
+    height: 495px;
+    top: calc(50% - 250px);
+    left: calc(50% - 175px);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: default;
+    padding: 40px 20px;
+}
+
+.modalWindow {
+    position: relative;
 }
