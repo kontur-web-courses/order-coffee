@@ -22,18 +22,15 @@ readyButton.addEventListener('click', function (){
     modal.querySelector('.accept').textContent = `Вы заказали ${count} ${getRightDrinks(count)}!`;
     modal.style.display = 'flex';
 });
-
-let deleteButtons = document.querySelectorAll('.delete-button');
-deleteButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const beverageFieldset = button.parentElement;
-        if (count > 1) {
-            beverageFieldset.remove();
-            count--;
-            console.log(1)
-        }
-    });
-});
+function Delete(button)
+{
+    const beverageFieldset = button.parentElement;
+    if (count > 1) {
+        beverageFieldset.remove();
+        count--;
+        console.log(1)
+    }
+}
 button.addEventListener('click', function (){
     count++;
     let newFieldset = fieldset.cloneNode(true)
