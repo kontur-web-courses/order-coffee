@@ -3,7 +3,7 @@ let formsCount = 1;
 let currFormNum = 1
 
 function addToCrossCloseEvent(cross){
-    cross.addEventListener('click', (event) => {
+    cross.addEventListener('click', () => {
         if (formsCount === 1)
             return;
         let cureNode = cross;
@@ -26,6 +26,17 @@ function AddButtonListener() {
     button.addEventListener('click', AddButtonListener);
     header.textContent = `Напиток №${++currFormNum}`;
     document.body.appendChild(form);
+}
+
+function getCorrectFormToNapitok(count) {
+    if (count % 10 === 1) {
+        return 'напиток';
+    }
+    if (count % 10 in [2, 3, 4]) {
+        return 'напитков';
+    }
+
+    return 'напитков';
 }
 
 
