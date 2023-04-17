@@ -4,6 +4,21 @@
     padding: 15px;
 }
 
+.delete-button {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.modal {
+    margin-top: 50px;
+    position: absolute;
+    text-align: center;
+    width: 500px;
+    border: 2px black dotted;
+    background-color:beige;
+}
+
 .beverage-count {
     margin: 0 0 15px;
 }

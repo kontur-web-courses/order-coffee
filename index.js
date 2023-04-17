@@ -7,6 +7,7 @@ function addDrink(){
     drinksCount++;
     let elem = document.getElementById('drinksSet');
     let drinkHTML = `<fieldset class="beverage" id="drink${drinkNumber}">
+    <input class="delete-button" id="delete-button${drinkNumber}" type="button" value="×">
     <h4 class="beverage-count">Напиток №${drinkNumber}</h4>
     <label class="field">
       <span class="label-text">Я буду</span>
@@ -61,5 +62,6 @@ function addDrink(){
 }
 
 function removeDrink(id){
-
+    document.getElementById(`drink${id}`).remove();
+    drinksCount--;
 }
