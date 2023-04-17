@@ -79,9 +79,19 @@ function callModalWindow() {
                 td3.innerText += x.parentElement.querySelector('span').textContent;
             }
         });
+        let td4 = document.createElement("td");
+        fieldset.querySelectorAll('textarea').forEach((x) => {
+            if (x.checked) {
+                if (td4.innerText.length !== 0) {
+                    td4.innerText += ", ";
+                }
+                td4.innerText += x.parentElement.querySelector('span').textContent;
+            }
+        });
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
+        tr.appendChild(td4);
         tbody.appendChild(tr);
     }
 }
