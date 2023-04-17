@@ -63,7 +63,7 @@ function callModalWindow() {
     for (let fieldset of fieldsets) {
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");
-        td1.innerText = fieldset.getElementsByTagName("select")[0].selectedOptions[0].textContent
+        td1.innerText = fieldset.getElementsByTagName("select")[0].selectedOptions[0].textContent;
         let td2 = document.createElement("td");
         fieldset.querySelectorAll('input[type="radio"]').forEach((x) => {
             if (x.checked) {
@@ -80,14 +80,7 @@ function callModalWindow() {
             }
         });
         let td4 = document.createElement("td");
-        fieldset.querySelectorAll('textarea').forEach((x) => {
-            if (x.checked) {
-                if (td4.innerText.length !== 0) {
-                    td4.innerText += ", ";
-                }
-                td4.innerText += x.parentElement.querySelector('span').textContent;
-            }
-        });
+        td4.innerText = fieldset.getElementsByClassName("comment")[0].textContent;
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
