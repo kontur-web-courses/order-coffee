@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Заказ кофе</title>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-<form>
-    <div class="fixed-overlay" id="fixed-overlay"></div>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form>
+      <div class="fixed-overlay" id="fixed-overlay"></div>
 
-    <div class="modal-window" id="modal-window">
+      <div class="modal-window" id="modal-window">
         <button class="modal-close" id="modal-close">X</button>
 
         <div class="modal-content">
@@ -20,9 +20,20 @@
                 </h2>
             </div>
 
-            <div class="modal-table">
-                <table class="order" id="drinks-info"></table>
-            </div>
+          <div class="modal-table">
+            <table class="order">
+              <thead>
+              <tr>
+                <th scope="col">Напиток</th>
+                <th scope="col">Молоко</th>
+                <th scope="col">Дополнительно</th>
+              </tr>
+              </thead>
+              <tbody id="drinks-info">
+
+              </tbody>
+            </table>
+          </div>
 
             <form class="lightbox-form">
                 <label>
@@ -86,8 +97,8 @@
                 </label>
             </div>
             <div class="anything-else">
-                <label for="anything-else">И ещё вот что</label><br>
-                <textarea class="anything-else-area"></textarea>
+                <label for="anything-else-area">И ещё вот что</label><br>
+                <textarea id="anything-else-area" class="anything-else-area"></textarea>
                 <div class="anything-else-value"></div>
             </div>
         </div>
