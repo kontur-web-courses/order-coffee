@@ -78,6 +78,11 @@ function openLightbox() {
 }
 
 function SendLightbox() {
+    let form = document.querySelectorAll('form')[1];
+    let formData = new FormData(form);
+    let time = formData.get('time');
+    let now = Date.now();
+    console.log();
     closeLightbox();
 }
 
@@ -95,7 +100,7 @@ function updateInfoAboutOrder() {
 }
 
 function updateTable() {
-    let a = [{'drink': 'a', 'milk': 'b', 'special': 'c', 'sd': null}, {'drink': 'a', 'milk': 'b', 'special': ''}];
+    let a = getFormData();
     let tbody = document.querySelector('.drinks-table').querySelector('tbody');
     for (const el of a) {
         let tr = document.createElement('tr');
