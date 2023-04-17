@@ -46,3 +46,13 @@
     border-radius: 5px;
 }
 
+.close-label {
+    display: flex;
+    justify-content: flex-end;
+    top: 25px;
+    right: 25px;
+    border: none;
+    background: transparent;
+    font-size: 1.5em;
+    cursor: pointer;
+}
