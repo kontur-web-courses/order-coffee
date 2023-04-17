@@ -18,6 +18,7 @@ function createNewFieldSet() {
     let id = fieldsCount++;
     newFieldset.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(newFieldset));
     newFieldset.getElementsByTagName("h4")[0].innerText = `Напиток №${id + 1}`;
+    newFieldset.getElementsByClassName("comment")[0].innerHTML="";
     fieldsets.push(newFieldset);
     div.appendChild(newFieldset)
     console.log(fieldsCount);
@@ -37,7 +38,6 @@ function deleteFieldSet(element) {
     }
     fieldsets.pop();
     fieldsCount--;
-    console.log(fieldsCount);
 }
 
 function getPadezh(i) {
