@@ -1,4 +1,8 @@
 const addButton = document.querySelector('.add-button');
+const deleteButton = document.querySelector('.delete-button');
+const submitButton = document.querySelector('.submit-button');
+let popupBg = document.querySelector('.popup__bg'); // Фон попап окна
+let popup = document.querySelector('.popup'); // Само окно
 
 let count = 1;
 addButton.addEventListener('click', function () {
@@ -27,8 +31,14 @@ addButton.addEventListener('click', function () {
 
     fieldset.after(node);
 });
-
-const deleteButton = document.querySelector('.delete-button');
 deleteButton.addEventListener('click', function () {
-    this.parentElement.parentElement.style.display = 'none'
+    popupBg.classList.remove('active');
+    popup.classList.remove('active');
 })
+
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    popupBg.classList.add('active');
+    popup.classList.add('active');
+})
+
