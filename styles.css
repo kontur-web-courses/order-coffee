@@ -45,6 +45,19 @@
     border-radius: 5px;
 }
 
+fieldset {
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.extra-input span {
+    display: block;
+}
 .blur_panel {
     position: fixed;
     top: 0;
