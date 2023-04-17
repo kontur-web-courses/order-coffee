@@ -44,6 +44,10 @@
     border: 2px solid orange;
     border-radius: 5px;
 }
+input{
+    float: left;
+
+}
 
 .modal {
     position: absolute;
@@ -114,3 +118,6 @@
     font-size: 1.125rem;
   }
 
+.cross{
+    float: right;
+}
