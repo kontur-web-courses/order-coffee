@@ -37,3 +37,30 @@ btn.addEventListener("click" , (event) => {
 span.addEventListener("click", () => {
     modal.style.display = "none";
 });
+
+const textarea = document.getElementsByClassName('textarea')[0];
+const userText = document.getElementsByClassName('checkbox-field-textarea')[0];
+const keywords = ['срочно', 'быстрее', 'побыстрее', 'скорее', 'поскорее', 'очень нужно'];
+
+textarea.addEventListener('input', () => {
+    let text = textarea.value;
+    let formattedText = ``;
+    let paragraphs = userText.querySelectorAll('p');
+
+    if (paragraphs.length > 0) {
+        userText.removeChild(paragraphs[0]);
+    }
+
+    text.split(' ').forEach(word => {
+        if (keywords.includes(word.toLowerCase())) {
+            formattedText += ` <b>${word}</b> `;
+        } else {
+            formattedText += ` ${word} `;
+        }
+    });
+
+    let newParagraph = document.createElement('p');
+
+    newParagraph.textContent = formattedText;
+    userText.appendChild(newParagraph);
+});
