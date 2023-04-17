@@ -117,7 +117,7 @@
 }
 
 .cross:hover {
-    background: crimson;
+    filter: invert(21%) sepia(98%) saturate(7028%) hue-rotate(358deg) brightness(115%) contrast(114%);
     border-radius: 8px;
 }
 
