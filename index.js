@@ -11,29 +11,67 @@ addButton.addEventListener('click', e => {
 
 nums234 = ['2', '3', '4']
 num1 = ['1']
-function handle(countOnClickAddButton) {
-    let strNum = countOnClickAddButton.toString().slice(-2);
-    if (countOnClickAddButton < 10) strNum = '0' + strNum;
+
+function handle(count) {
+    let strNum = count.toString().slice(-2);
+    if (count < 10) strNum = '0' + strNum;
     let correctEnd = strNum[0] !== '1' && nums234.includes(strNum[1]) ? 'ка' :
         strNum[0] !== '1' && num1.includes(strNum[1]) ? 'ок' : 'ков';
-    console.log(`Вы заказали ${countOnClickAddButton} напит${correctEnd}`);
+    return `Вы заказали ${count} напит${correctEnd}`;
 }
 
-function remove(form){
+let countOnClickRemoveButton = 0;
+
+function remove(form) {
     if (document.querySelectorAll('.beverage').length > 1) {
         form.parentElement.remove();
+        countOnClickRemoveButton++;
     }
 }
+
 
 let modal = document.getElementsByClassName('modal')[0];
 let btn = document.getElementsByClassName('submit-button')[0];
 let span = document.getElementsByClassName("close")[0];
-
-btn.addEventListener("click" , (event) => {
-    event.preventDefault();
-    modal.style.display = "block";
-});
-
+let table = document.getElementsByClassName('body')[0];
 span.addEventListener("click", () => {
     modal.style.display = "none";
 });
+
+
+btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        modal.style.display = "block";
+        let modalContent = document.querySelector('.beverage-count-in-order');
+        modalContent.innerText = handle(countOnClickAddButton - countOnClickRemoveButton);
+        func();
+    }
+);
+
+let func = function () {
+    for (let beverage of document.querySelectorAll('.beverage')) {
+        let tr = document.createElement('tr');
+        let currentBeverage = beverage.getElementsByClassName('field');
+        let td = document.createElement('td');
+        let e = document.getElementsByTagName('select');
+        td.innerText = e.options[e.selectedIndex].text;
+        tr.append(td);
+        td = document.createElement('td');
+        let elems = currentBeverage.getElementsByClassName('milk');
+        for (let i = 0; i < elems.length; i++) {
+            if (elems[i].checked) {
+                td.innerText = elems[i].value;
+                tr.append(td);
+            }
+        }
+        td = document.createElement('td');
+        let elem = currentBeverage.getElementsByClassName('options');
+        for (let i = 0; i < elem.length; i++) {
+            if (elem[i].checked) {
+                td.innerText += elem[i].value;
+                tr.append(td);
+            }
+        }
+        document.getElementsByClassName('body')[0].append(tr);
+    }
+}
