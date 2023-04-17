@@ -28,7 +28,7 @@ function Delete(button)
     if (count > 1) {
         beverageFieldset.remove();
         count--;
-        console.log(1)
+        console.log(count)
     }
 }
 button.addEventListener('click', function (){
