@@ -1,12 +1,25 @@
+let fieldset = document.getElementById(`fieldset1`);
+let te = document.createElement('textarea');
+te.id = "textarea1";
+let divText = document.createElement('div');
+divText.id = "textId1";
+te.placeholder = 'И еще вот что';
+te.addEventListener('change', function(e){
+    let x = this.value;
+    document.getElementById('textId1').textContent = x;
+});
+fieldset.appendChild(te);
+fieldset.appendChild(divText);
+
 let addButton = document.querySelector('.add-button');
 let counter = 1;
 addButton.addEventListener('click', function () {
     let beverage = document.getElementById(`fieldset${counter}`);//querySelector(`.beverage${counter-1}`);
     let newNode = beverage.cloneNode(true);
     newNode.id = `fieldset${counter + 1}`;
+    //newNode.getElementById('textId1');
     newNode.querySelector('.beverage-count').textContent = `Напиток №${counter + 1}`;
     document.getElementById(`fieldset${counter}`).after(newNode);
-    console.log(counter);
     counter++;
 });
 let cross = document.getElementsByClassName('cross')[0];
