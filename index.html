@@ -7,6 +7,31 @@
   </head>
   <body>
     <form>
+      <div class="fixed-overlay" id="fixed-overlay"></div>
+
+      <div class="modal-window" id="modal-window">
+        <button class="modal-close" id="modal-close">X</button>
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Спасибо за заказ. Вы заказали <span id="drinks-count"></span></h2>
+          </div>
+
+          <div class="modal-table">
+            <table class="order" id="drinks-info"></table>
+          </div>
+
+          <form class = "lightbox-form">
+            <label>
+              Выберите время заказа
+              <input type="time" name="order-time" class="order-time">
+            </label>
+
+            <p><button type="submit" class="submit-button">Купить!</button></p>
+          </form>
+        </div>
+      </div>
+
       <fieldset class="beverage">
         <div class="form-content"><h4 class="beverage-count">Напиток №1</h4>
         <label class="field">
@@ -62,7 +87,7 @@
         <button type="button" class="add-button">+ Добавить напиток</button>
       </div>
       <div style="margin-top: 30px">
-        <button type="submit" class="submit-button">Готово</button>
+        <button type="submit" class="submit-button" id="submit-button">Готово</button>
       </div>
     </form>
 
