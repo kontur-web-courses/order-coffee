@@ -3,7 +3,7 @@ function getRightDrinks(drinksCount){
     const napitka100 = [12, 13, 14]
     if (drinksCount % 10 === 1 && drinksCount % 100 !== 11)
         return 'напиток';
-    else if (drinksCount % 10 in napitka && drinksCount % 100 in napitka100)
+    else if (drinksCount % 10 in napitka && (drinksCount % 100 in napitka100 || drinksCount % 100 < 10))
         return 'напитка';
     return 'напитков'
 }
