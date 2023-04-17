@@ -1,7 +1,7 @@
 const addButton = document.querySelector('.add-button');
 
 let count = 1;
-addButton.onclick = function () {
+addButton.addEventListener('click', function () {
     const sets = document.querySelectorAll('fieldset');
     const fieldset = sets[sets.length - 1];
     const node = document.querySelector('fieldset').cloneNode(true);
@@ -18,12 +18,12 @@ addButton.onclick = function () {
         }
 
         if (e.className === 'close-button') {
-            e.onclick = function () {
+            e.addEventListener('click', function() {
                 node.remove();
                 count--;
-            }
+            });
         }
     }
 
     fieldset.after(node);
-}
+});
