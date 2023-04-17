@@ -19,7 +19,7 @@ function getCorrectFormToNapitok(count) {
         return 'напиток';
     }
     if (count % 10 in [2, 3, 4]) {
-        return 'напитков';
+        return 'напиткa';
     }
 
     return 'напитков';
@@ -31,6 +31,9 @@ function AddNewForm() {
     let header = form.getElementsByClassName('beverage-count')[0];
     let button = form.getElementsByClassName('add-button')[0];
     let cross = form.getElementsByClassName('form-close')[0];
+    let submitButton = form.getElementsByClassName('submit-button')[0];
+    submitButton.addEventListener('click', function(event) { event.preventDefault(); });
+    submitButton.addEventListener('click', () => openModal());
     addToCrossCloseEvent(cross);
     button.addEventListener('click', AddNewForm);
     header.textContent = `Напиток №${++currFormNum}`;
@@ -42,6 +45,10 @@ function closeModal() {
 }
 
 function openModal() {
+    let modalWindow = document.querySelector('.modal__container');
+    modalWindow.getElementsByTagName('p')[0]
+        .textContent = `Вы заказали ${formsCount} ${getCorrectFormToNapitok(formsCount)}`;
+
     document.querySelectorAll('.modal__container').forEach(overlay => {
         overlay.style.display = 'block';
         overlay.style.visibility = 'visible';
