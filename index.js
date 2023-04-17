@@ -1,12 +1,13 @@
 
 let orderCount = 1;
+let exampleOrder = document.querySelector('.beverage').cloneNode(true);
 document.querySelector('.add-button')
     .addEventListener('click', () => createNewForm());
 
 function createNewForm(){
     let beverages = document.querySelectorAll('.beverage');
     let last = beverages[beverages.length-1];
-    let newOrder = last.cloneNode(true);
+    let newOrder = exampleOrder.cloneNode(true);
     orderCount++;
 
     for (let querySelectorElement of newOrder.querySelector('div.field').childNodes) {
@@ -14,7 +15,6 @@ function createNewForm(){
             querySelectorElementElement.name = `milk${orderCount}`;
         }
     }
-    // newOrder.getElementsByName(`milk${orderCount}`).forEach(x => x.name = `milk${++orderCount}`);
 
     newOrder.querySelector('.beverage-count').innerText = `Напиток №${orderCount}`;
 
