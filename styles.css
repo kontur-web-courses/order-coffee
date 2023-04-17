@@ -45,3 +45,16 @@
     border-radius: 5px;
 }
 
+.hidden {
+    display: none;
+}
+
+#form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#form fieldset {
+    width: 300px;
+}
