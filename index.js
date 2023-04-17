@@ -3,11 +3,12 @@ let drinksCount = 0
 document.getElementById("add-button").addEventListener('click', addDrink);
 
 function addDrink(){
+
     drinkNumber++;
     drinksCount++;
     let elem = document.getElementById('drinksSet');
     let drinkHTML = `<fieldset class="beverage" id="drink${drinkNumber}">
-    <input class="delete-button" id="delete-button${drinkNumber}" type="button" value="×">
+    <input class="delete-button" onclick="removeDrink(${drinkNumber})" type="button" value="×">
     <h4 class="beverage-count">Напиток №${drinkNumber}</h4>
     <label class="field">
       <span class="label-text">Я буду</span>
@@ -59,9 +60,21 @@ function addDrink(){
 
 
     elem.insertAdjacentHTML('beforeend', drinkHTML);
+    refreshNumbers()
 }
 
 function removeDrink(id){
     document.getElementById(`drink${id}`).remove();
-    drinksCount--;
+    refreshNumbers()
+}
+
+function refreshNumbers(){
+    let c = 1;
+    let elements = Array.from(document.getElementById("drinksSet").childNodes)
+    for(let e of elements){
+        if(e.nodeType == 3)
+            continue;
+        e.querySelectorAll('.beverage-count')[0].innerText = `Напиток №${c}`;
+        c++
+    }
 }

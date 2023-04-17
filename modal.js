@@ -1,9 +1,11 @@
 document.getElementById("submit").addEventListener('click', showModalWindow);
+drinks = []
+
 
 function showModalWindow(){
 let content = `<div class="modal" id="modalWindow">
 <a onclick="hideModalWindow()">X</a>
-<p>Текст модального окна</p>
+<p>"Вы заказали ${drinksCount} напитков"</p>
 </div>`
 document.body.insertAdjacentHTML('afterbegin', content)
 
