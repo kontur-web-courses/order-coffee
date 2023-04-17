@@ -44,6 +44,10 @@
     border: 2px solid orange;
     border-radius: 5px;
 }
+.delete-button {
+    margin-left: 150px;
+    cursor: pointer;
+}
 
 .modal-overlay {
     position: fixed;

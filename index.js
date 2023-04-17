@@ -3,8 +3,10 @@ const form = document.querySelector('form');
 const protoBeverage = form.firstElementChild.cloneNode(true);
 
 
+
 let previousBeverage = form.firstElementChild;
 let beverageCount = 1;
+let fieldset = document.querySelector('.beverage');
 updateModalText();
 
 addButton.addEventListener('click', () => {
@@ -16,6 +18,17 @@ addButton.addEventListener('click', () => {
   previousBeverage = newBeverage;
   updateModalText();
 });
+
+function Delete(button)
+{
+  const beverageFieldset = button.parentElement;
+  if (beverageCount > 1) {
+    fieldset = beverageFieldset.previousSibling;
+    beverageFieldset.remove();
+    beverageCount--;
+    console.log(beverageCount)
+  }
+}
 
 function renameRadioButtons(beverage, index) {
     const buttons = beverage.querySelectorAll('input[type=radio]');
