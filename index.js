@@ -9,6 +9,14 @@ addButton.addEventListener('click', function () {
     console.log(counter);
     counter++;
 });
+let cross = document.getElementsByClassName('cross')[0];
+cross.addEventListener('click', function (){
+    // let countFieldset = document.getElementById(`fieldset${counter}`);
+    this.parent.remove();
+    // if (countFieldset.innerHTML === 'fieldset1') return;
+    // console.log('cross')
+})
+
 document.querySelector('.submit-button').addEventListener('click', function (e) {
     let modal = document.getElementById('modal');
     let textNode = document.createTextNode(`Вы заказали ${counter} напитков`);
@@ -31,4 +39,6 @@ document.querySelector('.modal__close-button').addEventListener('click', functio
     location.reload();
     //document.querySelector('.modal__content').removeChild();
 })
+
+
 
