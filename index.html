@@ -60,9 +60,27 @@
         <button type="button" class="add-button">+ Добавить напиток</button>
       </div>
       <div style="margin-top: 30px">
-        <button type="submit" class="submit-button">Готово</button>
+        <button type="button" class="submit-button" onclick="openLightbox()">Готово</button>
       </div>
     </form>
+
+    <div id="blur_panel" class="blur_panel"></div>
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close-button" onclick="closeLightbox()"><strong>x</strong></button>
+      <p>Заказ принят!</p>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">Напиток</th>
+          <th scope="col">Молоко</th>
+          <th scope="col">Дополнительно</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
 
     <script src="index.js"></script>
   </body>

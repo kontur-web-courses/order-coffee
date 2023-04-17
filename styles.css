@@ -45,3 +45,57 @@
     border-radius: 5px;
 }
 
+.blur_panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+}
+
+.lightbox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: pink;
+    border-radius: 10px;
+    display: block;
+    visibility: hidden;
+}
+
+.lightbox > p {
+    padding: 10px 10px;
+    margin: 0px 0px;
+}
+
+.lightbox > h3 {
+    margin: 0px 0px;
+}
+
+.lightbox-close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 10px;
+    color: red;
+}
+
+table {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+}
+th,
+td {
+    border: 1px solid black;
+    padding: 10px 15px;
+}
+
+
