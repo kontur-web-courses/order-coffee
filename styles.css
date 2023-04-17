@@ -50,13 +50,38 @@
 }
 
 #form {
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
 }
 
 #form fieldset {
-    width: 300px;
+    width: 15%;
+    background: #eeeeee;
+    border-radius: 8px;
+    margin: 16px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    border-radius: 8px;
+    background: #eeeeee;
+    width: 20%;
+    padding: 8px;
+}
+
+.buttons div {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
 }
 
 .modal {
@@ -85,6 +110,15 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+}
+
+.cross {
+    float: right;
+}
+
+.cross:hover {
+    background: crimson;
+    border-radius: 8px;
 }
 
 .close:hover,

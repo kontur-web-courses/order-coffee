@@ -14,12 +14,12 @@
       </div>
     </div>
 
-    <form>
+    <form class="form">
       <div id="form">
         <fieldset class="beverage hidden" id="template">
           <div>
+            <img class="cross" onclick="remove(this)" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Orthodox_cross.svg" alt="cross" width="20px">
             <h4 class="beverage-count">Напиток №1</h4>
-            <img onclick="remove(this)" style="float: right" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Orthodox_cross.svg" alt="cross" width="20px">
           </div>
           <label class="field">
             <span class="label-text">Я буду</span>
@@ -69,7 +69,7 @@
           </div>
         </fieldset>
       </div>
-      <div>
+      <div class="buttons">
         <div>
           <button type="button" class="add-button">+ Добавить напиток</button>
         </div>
