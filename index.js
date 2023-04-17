@@ -80,14 +80,7 @@ function callModalWindow() {
             }
         });
         let td4 = document.createElement("td");
-        fieldset.querySelectorAll('textarea').forEach((x) => {
-            if (x.checked) {
-                if (td4.innerText.length !== 0) {
-                    td4.innerText += ", ";
-                }
-                td4.innerText += x.parentElement.querySelector('span').textContent;
-            }
-        });
+        td4.innerText = fieldset.getElementsByClassName('comment')[0].textContent;
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
@@ -105,3 +98,12 @@ document.getElementsByClassName("overlay")[0].style.setProperty("display", "none
 document.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(fieldsets[0]));
 document.getElementsByClassName("add-button")[0].addEventListener("click", () => createNewFieldSet());
 document.getElementsByClassName("submit-button")[0].addEventListener("click", () => callModalWindow());
+document.getElementsByClassName("orderButton")[0].addEventListener("click", () =>{
+    let time = document.getElementById('time');
+    if (time.time>=Date.now()){
+        time.style.border='red';
+    }
+    else{
+        removeModalWindow();
+    }
+});
