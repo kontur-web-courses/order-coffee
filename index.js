@@ -6,7 +6,6 @@ const protoBeverage = form.firstElementChild.cloneNode(true);
 
 let previousBeverage = form.firstElementChild;
 let beverageCount = 1;
-let fieldset = document.querySelector('.beverage');
 updateModalText();
 
 addButton.addEventListener('click', () => {
@@ -21,10 +20,10 @@ addButton.addEventListener('click', () => {
 
 function Delete(button)
 {
-  const beverageFieldset = button.parentElement;
   if (beverageCount > 1) {
-    fieldset = beverageFieldset.previousSibling;
-    beverageFieldset.remove();
+    const old = previousBeverage.previousSibling;
+    previousBeverage.remove();
+    previousBeverage = old;
     beverageCount--;
     console.log(beverageCount)
   }
