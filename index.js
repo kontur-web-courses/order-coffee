@@ -1,5 +1,6 @@
 const addButton = document.querySelector('.add-button');
 const form = document.querySelector('form');
+const protoBeverage = form.firstElementChild.cloneNode(true);
 
 
 let previousBeverage = form.firstElementChild;
@@ -7,7 +8,7 @@ let beverageCount = 1;
 updateModalText();
 
 addButton.addEventListener('click', () => {
-  const newBeverage = previousBeverage.cloneNode(true);
+  const newBeverage = protoBeverage.cloneNode(true);
   renameRadioButtons(newBeverage, beverageCount);
   beverageCount++;
   newBeverage.querySelector('.beverage-count').textContent = `Напиток №${beverageCount}`;
