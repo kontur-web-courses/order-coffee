@@ -43,13 +43,14 @@ btn.addEventListener("click", (event) => {
         modal.style.display = "block";
         let modalContent = document.querySelector('.beverage-count-in-order');
         modalContent.innerText = handle(countOnClickAddButton - countOnClickRemoveButton);
-        func();
+        createTable();
     }
 );
 
-let func = function () {
+let createTable = function () {
     let selects = document.getElementsByTagName('select');
     let fields = document.getElementsByTagName('input');
+    let areas = document.getElementsByTagName('textarea');
     for (let i = 0; i < document.querySelectorAll('.beverage').length; i++) {
 
         let tr = document.createElement('tr');
@@ -74,12 +75,15 @@ let func = function () {
             }
         }
         tr.append(td2);
+        let td3 = document.createElement('td');
+        td3.textContent = areas[i].value;
+        tr.append(td3);
         document.getElementsByClassName('body')[0].append(tr);
     }
 }
 
 
-const keywords = ['срочно', 'быстрее', 'побыстрее', 'скорее', 'поскорее', 'очень нужно'];
+const keywords = ['срочно', 'побыстрее', 'быстрее', 'поскорее', 'скорее', 'очень нужно'];
 
 let textAreaFunc = function (textarea) {
     let text = textarea.value;
@@ -91,15 +95,22 @@ let textAreaFunc = function (textarea) {
     }
 
     text.split(' ').forEach(word => {
-        if (keywords.includes(word.toLowerCase())) {
-            formattedText += ` <b>${word}</b> `;
-        } else {
-            formattedText += ` ${word} `;
+        let f = true;
+        for (let keyword of keywords) {
+            let m = word.toLowerCase().match(keyword);
+            if (m != null) {
+                let start = word.slice(0, m.index);
+                let middle = word.slice(m.index, m.index + m[0].length);
+                let finish = word.slice(m.index + m[0].length, word.length);
+                formattedText += ` ${start}<b>${middle}</b>${finish} `;
+                f = false;
+                break;
+            }
         }
+        if (f) formattedText += ` ${word} `;
     });
 
     let newParagraph = document.createElement('p');
-
     newParagraph.textContent = formattedText;
     textarea.parentElement.appendChild(newParagraph);
 }
