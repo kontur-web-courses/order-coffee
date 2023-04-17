@@ -5,7 +5,7 @@ const doneBtn = document.getElementById("submit-button");
 const modalOverlay = document.getElementById("modal-overlay");
 const modal = document.getElementById("modal");
 const addBeverageButton = document.querySelector('.add-button');
-const beverage = document.querySelector('.beverage');
+const beveragePrototype = document.querySelector('.beverage').cloneNode(true);
 const closeBtn = document.getElementById("close-btn");
 let differentValues = new Set([2, 3, 4]);
 let differentValues2 = new Set([11, 12, 13, 14]);
@@ -38,7 +38,7 @@ closeBtn.addEventListener("click", function() {
 });
 
 addBeverageButton.addEventListener('click', addBeverage);
-initBeverage(beverage);
+initBeverage(beveragePrototype);
 
 function initBeverage(beverage) {
     const clonedCountObj = beverage.querySelectorAll(".beverage-count")[0];
@@ -51,11 +51,11 @@ function initBeverage(beverage) {
 }
 
 function addBeverage() {
-    const beverage = document.getElementsByClassName('beverage')[0];
-    const clonedBeverage = beverage.cloneNode(true);
+    const clonedBeverage = beveragePrototype.cloneNode(true);
     const form = document.getElementsByTagName('form')[0];
     totalBeverages++;
     curNumBeverages++;
+    clonedBeverage.id = 'bev' + totalBeverages;
     initBeverage(clonedBeverage);
     form.insertBefore(clonedBeverage, form.children[form.children.length-1]);
 }
