@@ -8,7 +8,7 @@ const addBeverageButton = document.querySelector('.add-button');
 const beverage = document.querySelector('.beverage');
 const closeBtn = document.getElementById("close-btn");
 let differentValues = new Set([2, 3, 4]);
-let differentValues2 = new Set([12, 13, 14]);
+let differentValues2 = new Set([11, 12, 13, 14]);
 let differentValues3 = new Set([1]);
 
 
