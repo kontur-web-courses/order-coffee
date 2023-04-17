@@ -18,7 +18,7 @@ addButton.addEventListener('click', function () {
         }
 
         if (e.className === 'close-button') {
-            e.addEventListener('click', function() {
+            e.addEventListener('click', function () {
                 node.remove();
                 count--;
             });
@@ -27,3 +27,8 @@ addButton.addEventListener('click', function () {
 
     fieldset.after(node);
 });
+
+const deleteButton = document.querySelector('.delete-button');
+deleteButton.addEventListener('click', function () {
+    this.parentElement.parentElement.style.display = 'none'
+})
