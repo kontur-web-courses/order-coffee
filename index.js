@@ -2,6 +2,10 @@ let fieldsCount = 1;
 let fieldsets = [document.getElementsByTagName("fieldset")[0]];
 let div = document.getElementsByClassName("fieldsets")[0];
 
+cloneText = (textarea, parent) => {
+    parent.getElementsByClassName("comment")[0].innerHTML = textarea.value.replace(/(срочно)|(быстрее)|(побыстрее)|(скорее)|(поскорее)|(очень нужно)/gi, "<b>$&</b>");
+}
+
 function createNewFieldSet() {
     let newFieldset = document.createElement("fieldset");
     newFieldset.setAttribute("class", "beverage");
@@ -15,8 +19,7 @@ function createNewFieldSet() {
     newFieldset.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(newFieldset));
     newFieldset.getElementsByTagName("h4")[0].innerText = `Напиток №${id + 1}`;
     fieldsets.push(newFieldset);
-    div.appendChild(newFieldset);
-
+    div.appendChild(newFieldset)
     console.log(fieldsCount);
 }
 
@@ -87,14 +90,8 @@ function removeModalWindow() {
     document.getElementsByClassName("overlay")[0].style.setProperty("display", "none");
 }
 
-document.getElementById("modalWindowCloseButton" +
-    "").addEventListener("click", () => removeModalWindow());
+document.getElementById("modalWindowCloseButton" + "").addEventListener("click", () => removeModalWindow());
 document.getElementsByClassName("overlay")[0].style.setProperty("display", "none");
 document.getElementsByClassName("closeButton")[0].addEventListener("click", () => deleteFieldSet(fieldsets[0]));
 document.getElementsByClassName("add-button")[0].addEventListener("click", () => createNewFieldSet());
 document.getElementsByClassName("submit-button")[0].addEventListener("click", () => callModalWindow());
-cloneText = (textarea,parent) =>{
-
-    parent.getElementsByClassName("comment")[0].innerHTML =textarea.value.replace(/(срочно)|(быстрее)|(побыстрее)|(скорее)|(поскорее)|(очень нужно)/gi, "<b>$&</b>");
-
-}
