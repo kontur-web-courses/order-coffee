@@ -21,11 +21,11 @@ addButton.addEventListener('click', () => {
 function Delete(button)
 {
   if (beverageCount > 1) {
-    const old = previousBeverage.previousSibling;
+    const tmp = previousBeverage.previousSibling;
     previousBeverage.remove();
-    previousBeverage = old;
+    previousBeverage = tmp;
     beverageCount--;
-    console.log(beverageCount)
+    updateModalText();
   }
 }
 
