@@ -48,29 +48,30 @@ btn.addEventListener("click", (event) => {
 );
 
 let func = function () {
-    for (let beverage of document.querySelectorAll('.beverage')) {
+    let selects = document.getElementsByTagName('select');
+    let fields = document.getElementsByTagName('input');
+    for (let i = 0; i < document.querySelectorAll('.beverage').length; i++) {
+
         let tr = document.createElement('tr');
-        let currentBeverage = beverage.getElementsByClassName('field');
         let td = document.createElement('td');
-        let e = document.getElementsByTagName('select');
-        td.innerText = e.options[e.selectedIndex].text;
+        let selectElement = selects[i];
+        td.textContent = selectElement.options[selectElement.selectedIndex].value;
         tr.append(td);
-        td = document.createElement('td');
-        let elems = currentBeverage.getElementsByClassName('milk');
-        for (let i = 0; i < elems.length; i++) {
-            if (elems[i].checked) {
-                td.innerText = elems[i].value;
-                tr.append(td);
+        let td1 = document.createElement('td');
+        for (let j = 4 * i; j < 4 * i + 4; j++) {
+            if (fields[j].checked) {
+                td1.textContent = fields[j].value;
+                tr.append(td1);
+                break;
             }
         }
-        td = document.createElement('td');
-        let elem = currentBeverage.getElementsByClassName('options');
-        for (let i = 0; i < elem.length; i++) {
-            if (elem[i].checked) {
-                td.innerText += elem[i].value;
-                tr.append(td);
+        let td2 = document.createElement('td');
+        for (let j = 4 * i + 4; j < 4 * i + 8; j++) {
+            if (fields[j].checked) {
+                td2.textContent += `${fields[j].value}; `;
             }
         }
+        tr.append(td2);
         document.getElementsByClassName('body')[0].append(tr);
     }
 }
@@ -101,4 +102,3 @@ textarea.addEventListener('input', () => {
     newParagraph.textContent = formattedText;
     userText.appendChild(newParagraph);
 });
->>>>>>> ef0ae7c65fa2992d10c94f7195f11a8a48f1aabe
