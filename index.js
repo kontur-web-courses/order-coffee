@@ -14,14 +14,12 @@ addButton.addEventListener('click', function() {
 document.querySelector('.submit-button').addEventListener('click',function(e){
     let modal = document.getElementById('modal');
     e.preventDefault();
-    //modal.classList.remove("modal");
     modal.classList.add('modal_active');
-     //= 'modal modal_active';
-    //modal2.show();
 });
 
 document.querySelector('.modal__close-button').addEventListener('click', function(e){
     let modal = document.getElementById('modal');
     modal.classList.remove('modal_active');
-    
+    document.querySelector('.submit-button').send
 })
+
