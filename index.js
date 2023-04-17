@@ -14,6 +14,17 @@ function addToCrossCloseEvent(cross){
     });
 }
 
+function getCorrectFormToNapitok(count) {
+    if (count % 10 === 1) {
+        return 'напиток';
+    }
+    if (count % 10 in [2, 3, 4]) {
+        return 'напитков';
+    }
+
+    return 'напитков';
+}
+
 function AddNewForm() {
     formsCount++;
     let form = document.getElementsByTagName('form')[0].cloneNode(true);
@@ -26,26 +37,16 @@ function AddNewForm() {
     document.body.appendChild(form);
 }
 
-function Submit() {
-    const modalBackground = document.getElementsByClassName("modalBackground")[0].cloneNode(true);
-    const modalActive = document.getElementsByClassName("modalActive")[0].cloneNode(true);
-    const modalWindow = document.getElementsByClassName("modalWindow")[0].cloneNode(true);
-    document.body.appendChild(modalBackground);
-    document.body.appendChild(modalActive);
-    document.body.appendChild(modalWindow);
+function closeModal() {
+    document.querySelectorAll('.modal__container').forEach(overlay => overlay.style.display = 'none')
 }
 
-function getCorrectFormToNapitok(count) {
-    if (count % 10 === 1) {
-        return 'напиток';
-    }
-    if (count % 10 in [2, 3, 4]) {
-        return 'напитков';
-    }
-
-    return 'напитков';
+function openModal() {
+    document.querySelectorAll('.modal__container').forEach(overlay => {
+        overlay.style.display = 'block';
+        overlay.style.visibility = 'visible';
+    })
 }
-
 
 addToCrossCloseEvent(document.getElementsByClassName('form-close')[0]);
 
@@ -53,4 +54,9 @@ let addButton = document.getElementsByClassName('add-button')[0];
 addButton.addEventListener('click', AddNewForm);
 
 let submitButton = document.getElementsByClassName('submit-button')[0];
-submitButton.addEventListener('click', Submit);
+submitButton.addEventListener('click', function(event) { event.preventDefault(); });
+submitButton.addEventListener('click', () => openModal());
+
+document.querySelectorAll('.modal__close').forEach(closeButton => {
+    closeButton.addEventListener('click', () => closeModal())
+})

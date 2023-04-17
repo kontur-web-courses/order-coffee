@@ -56,29 +56,37 @@
 
 }
 
-.modalBackground {
-    display: none;
-    background: rgba(0, 0, 0, 0.8);
+.modal__container {
+    visibility: hidden;
     position: fixed;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    /* указываем z-индекс для корректного наслаивания */
-    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    background: rgba(0,0,0,.3);
 }
 
-.modalActive {
+.modal__frame {
+    width: 640px;
+    background: white;
     position: absolute;
-    width: 350px;
-    height: 495px;
-    top: calc(50% - 250px);
-    left: calc(50% - 175px);
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    cursor: default;
-    padding: 40px 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
-.modalWindow {
-    position: relative;
+.modal__close {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: #686868;
+    cursor: pointer;
 }
