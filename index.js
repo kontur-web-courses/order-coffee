@@ -79,7 +79,8 @@ openModalBtn.onclick = function(e) {
         for(let j of new FormData(f)){
             arr2.push(j[1]);
         }
-        arr1.push(arr2);
+        let [cof, milk, ...other] = arr2;
+        arr1.push([cof, milk, other.toString()]);
     }
     console.log(arr1);
     createTable(arr1);
