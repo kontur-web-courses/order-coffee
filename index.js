@@ -31,6 +31,7 @@ function Delete(button)
 {
     const beverageFieldset = button.parentElement;
     if (count > 1) {
+        fieldset = beverageFieldset.previousSibling;
         beverageFieldset.remove();
         count--;
         console.log(1)
