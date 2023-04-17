@@ -65,11 +65,27 @@ button.addEventListener('click', function (){
 
 function orderTable() {
     const table = document.createElement('table');
+    const headerRow = document.createElement('tr');
+
+    const header1 = document.createElement('th');
+    header1.textContent = 'Напиток';
+    headerRow.appendChild(header1);
+
+    const header2 = document.createElement('th');
+    header2.textContent = 'Молоко';
+    headerRow.appendChild(header2);
+
+    const header3 = document.createElement('th');
+    header3.textContent = 'Дополнительно';
+    headerRow.appendChild(header3);
+
+    table.appendChild(headerRow);
 
     for (const beverage of document.getElementsByClassName('beverage')){
         const fields = beverage.getElementsByClassName('field');
         let drinkName;
         let milk;
+        let text;
         for (const e of fields[0].querySelector('select')){
             if (e.selected){
                 drinkName = e.innerText;
@@ -85,6 +101,8 @@ function orderTable() {
             }
         }
 
+        text = beverage.querySelector('.changedAreaValue').innerText;
+
         let row = table.insertRow();
         const drinkCell = row.insertCell(0);
         drinkCell.style.borderStyle = 'solid';
@@ -92,8 +110,11 @@ function orderTable() {
         const milkCell = row.insertCell(1);
         milkCell.innerText = milk;
         milkCell.style.borderStyle = 'solid';
+        const textCell = row.insertCell(2);
+        textCell.innerText = text;
+        textCell.style.borderStyle = 'solid';
+
     }
     let table1 = document.querySelector('.table_origin')
     table1.parentNode.replaceChild(table, table1);
-
 }
