@@ -67,19 +67,38 @@ function openLightbox() {
     document.getElementById("blur_panel").style.visibility = "visible";
     document.getElementById("lightbox").style.visibility = "visible";
     updateInfoAboutOrder();
+    updateTable();
+}
+
+function SendLightbox() {
+    closeLightbox();
 }
 
 function updateInfoAboutOrder() {
     let lightbox = document.getElementById("lightbox");
     let p = lightbox.querySelector('p');
-    let text = `\nВы заказали ${orderCount} `;
+    let text = `Заказ принят!\nВы заказали ${orderCount} `;
     if ([2, 3, 4].includes(orderCount % 10) && Math.floor(orderCount / 10) % 10 !== 1)
         text += 'напитка.';
-    else if(orderCount % 10 == 1 && Math.floor(orderCount / 10) % 10 !== 1)
+    else if(orderCount % 10 === 1 && Math.floor(orderCount / 10) % 10 !== 1)
         text += 'напиток.';
     else
         text += 'напитков.';
-    p.innerText += text;
+    p.innerText = text;
+}
+
+function updateTable() {
+    let a = [{'drink': 'a', 'milk': 'b', 'special': 'c', 'sd': null}, {'drink': 'a', 'milk': 'b', 'special': ''}];
+    let tbody = document.querySelector('.drinks-table').querySelector('tbody');
+    for (const el of a) {
+        let tr = document.createElement('tr');
+        for (const property in el) {
+            let td = document.createElement('td');
+            td.innerText = el[property];
+            tr.append(td)
+        }
+        tbody.append(tr);
+    }
 }
 
 let exampleOrder = document.querySelector('.beverage').cloneNode(true);

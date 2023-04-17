@@ -76,18 +76,26 @@
     <div id="lightbox" class="lightbox">
       <button class="lightbox-close-button" onclick="closeLightbox()"><strong>x</strong></button>
       <p>Заказ принят!</p>
-      <table>
+      <table class="drinks-table">
         <thead>
         <tr>
           <th scope="col">Напиток</th>
           <th scope="col">Молоко</th>
           <th scope="col">Дополнительно</th>
+          <th scope="col">Пожелания</th>
         </tr>
         </thead>
         <tbody>
-
         </tbody>
       </table>
+      <form>
+        <label>
+          Выберите время заказа
+          <input type="time">
+        </label>
+        <br>
+        <button type="button" class="submit-lightbox" onclick="SendLightbox()">Оформить</button>
+      </form>
     </div>
 
     <script src="index.js"></script>
