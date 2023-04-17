@@ -15,6 +15,12 @@ function closeClone(button){
 document.querySelector(".add-button").addEventListener("click", function () {
     let beverage = document.querySelectorAll(".beverage");
     let clone = beverage[beverage.length - 1].cloneNode(true);
+
+    const milks = clone.querySelectorAll("*[name='milk']");
+    for (const milk of milks){
+        milk.name = `milk${countOrders}`
+    }
+
     countOrders++;
     clone.querySelector(".beverage-count").textContent = `Напиток №${countOrders}`;
     beverage[beverage.length - 1].after(clone);
@@ -55,3 +61,4 @@ document.querySelector(".submit-button").addEventListener("click", function () {
 function closeBox() {
     document.querySelector(".overlay").style.setProperty("display", "none");
 }
+
