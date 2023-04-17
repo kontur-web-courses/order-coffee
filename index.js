@@ -79,8 +79,10 @@ function callModalWindow() {
                 td3.innerText += x.parentElement.querySelector('span').textContent;
             }
         });
+
         let td4 = document.createElement("td");
         td4.innerText = fieldset.getElementsByClassName("comment")[0].textContent;
+
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
