@@ -81,7 +81,7 @@
 }
 
 .hystmodal__close {
-    left: 300px;
+    margin-left: 400px;
     cursor: pointer;
 }
 

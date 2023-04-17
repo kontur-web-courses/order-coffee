@@ -44,3 +44,38 @@ button.addEventListener('click', function (){
     fieldset.after(newFieldset);
     fieldset = newFieldset;
 });
+
+function orderTable() {
+    const table = document.createElement('table');
+
+    for (const beverage of document.getElementsByClassName('beverage')){
+        const fields = beverage.getElementsByClassName('field');
+        let drinkName;
+        let milk;
+        for (const e of fields[0].querySelector('select')){
+            if (e.selected){
+                drinkName = e.innerText;
+                break;
+            }
+        }
+
+        for (const e of fields[1].querySelectorAll('label')){
+            const input = e.querySelector('input');
+            if (input.checked){
+                const span = e.querySelector('span')
+                milk = span.innerText;
+            }
+        }
+
+        let row = table.insertRow();
+        const drinkCell = row.insertCell(0);
+        drinkCell.style.borderStyle = 'solid';
+        drinkCell.innerText = drinkName;
+        const milkCell = row.insertCell(1);
+        milkCell.innerText = milk;
+        milkCell.style.borderStyle = 'solid';
+    }
+    let table1 = document.querySelector('.table_origin')
+    table1.parentNode.replaceChild(table, table1);
+
+}

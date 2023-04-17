@@ -8,9 +8,21 @@
   <body>
   <div class="hystmodal" id="myModal">
     <div class="hystmodal__window">
-
-      <label class="accept">Заказ принят!</label>
       <button data-hystclose class="hystmodal__close">&times;</button>
+      <br>
+      <label class="accept">Заказ принят!</label>
+      <table class="table_origin">
+        <thead>
+        <tr>
+          <th>Напиток</th>
+          <th>Молоко</th>
+          <th>Дополнительно</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
     </div>
   </div>
     <form>
@@ -69,7 +81,7 @@
         <button type="button" class="add-button">+ Добавить напиток</button>
       </div>
       <div style="margin-top: 30px">
-        <button type="button" class="submit-button">Готово</button>
+        <button type="button" class="submit-button" onclick="orderTable()">Готово</button>
       </div>
     </form>
 
