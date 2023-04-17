@@ -58,15 +58,19 @@ let func = function () {
         td.textContent = selectElement.options[selectElement.selectedIndex].value;
         tr.append(td);
         let td1 = document.createElement('td');
-        for (let j = 4 * i; j < 4 * i + 4; j++) {
+        let flag = true;
+        for (let j = 8 * i; j < 8 * i + 4; j++) {
+            console.log(fields[j]);
             if (fields[j].checked) {
                 td1.textContent = fields[j].value;
-                tr.append(td1);
-                break;
+                flag = false;
             }
         }
+        if (flag) td1.textContent = 'usual';
+        tr.append(td1);
         let td2 = document.createElement('td');
-        for (let j = 4 * i + 4; j < 4 * i + 8; j++) {
+        for (let j = 8 * i + 4; j < 8 * i + 8; j++) {
+            console.log(fields[j]);
             if (fields[j].checked) {
                 td2.textContent += `${fields[j].value}; `;
             }
