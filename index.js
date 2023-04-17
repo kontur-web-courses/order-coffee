@@ -41,21 +41,27 @@ addBeverageButton.addEventListener('click', addBeverage);
 initBeverage(beverage);
 
 function initBeverage(beverage) {
-  const removeBeverageButton = beverage.querySelector('.remove-beverage');
-  removeBeverageButton.addEventListener('click', (e) => {
-    removeBeverage(e);
-  });
+    const clonedCountObj = beverage.querySelectorAll(".beverage-count")[0];
+    clonedCountObj.textContent = `Напиток №${totalBeverages}`;
+    const removeBeverageButton = beverage.querySelector('.remove-beverage');
+    removeBeverageButton.addEventListener('click', (e) => {
+        removeBeverage(e);
+    });
+    renameRadioButtons(beverage, totalBeverages);
 }
 
 function addBeverage() {
     const beverage = document.getElementsByClassName('beverage')[0];
     const clonedBeverage = beverage.cloneNode(true);
-    const clonedCountObj = clonedBeverage.querySelectorAll(".beverage-count")[0];
-    clonedCountObj.textContent = `Напиток №${++totalBeverages}`;
     const form = document.getElementsByTagName('form')[0];
-    form.insertBefore(clonedBeverage, form.children[form.children.length-1]);
-    initBeverage(clonedBeverage);
+    totalBeverages++;
     curNumBeverages++;
+    initBeverage(clonedBeverage);
+    form.insertBefore(clonedBeverage, form.children[form.children.length-1]);
+}
+
+function renameRadioButtons(beverage, index) {
+
 }
 
 function removeBeverage(e) {
