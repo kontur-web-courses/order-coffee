@@ -2,11 +2,23 @@
 let addForm = document.querySelector("button.add-button");
 let countForms = 1;
 addForm.addEventListener("click", () => {
-    let formCoffee = document.querySelectorAll("fieldset.beverage")[countForms - 1];
-    let newFormCoffee = formCoffee.cloneNode(true);
+    let formsCoffee = document.querySelectorAll("fieldset.beverage");
+    let newFormCoffee = formsCoffee[0].cloneNode(true);
+    let options = newFormCoffee.querySelectorAll("div.field > label > input");
+    formsCoffee[countForms - 1].after(newFormCoffee);
 
     countForms += 1;
     let head4 = newFormCoffee.querySelector("h4.beverage-count");
     head4.innerHTML = `Напиток №${countForms}`;
-    formCoffee.parentNode.insertBefore(newFormCoffee, formCoffee.nextSibling);
-})
+
+    for (let i = 0; i < options.length; i++){
+        options[i].name = `milk${countForms}`;
+    }
+});
+
+function remove(form){
+    if (countForms > 1){
+        form.parentElement.remove();
+        countForms -= 1;
+    }
+}
