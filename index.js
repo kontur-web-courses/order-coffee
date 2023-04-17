@@ -60,7 +60,6 @@ let func = function () {
         let td1 = document.createElement('td');
         let flag = true;
         for (let j = 8 * i; j < 8 * i + 4; j++) {
-            console.log(fields[j]);
             if (fields[j].checked) {
                 td1.textContent = fields[j].value;
                 flag = false;
@@ -70,7 +69,6 @@ let func = function () {
         tr.append(td1);
         let td2 = document.createElement('td');
         for (let j = 8 * i + 4; j < 8 * i + 8; j++) {
-            console.log(fields[j]);
             if (fields[j].checked) {
                 td2.textContent += `${fields[j].value}; `;
             }
@@ -80,17 +78,16 @@ let func = function () {
     }
 }
 
-const textarea = document.getElementsByClassName('textarea')[0];
-const userText = document.getElementsByClassName('checkbox-field-textarea')[0];
+
 const keywords = ['срочно', 'быстрее', 'побыстрее', 'скорее', 'поскорее', 'очень нужно'];
 
-textarea.addEventListener('input', () => {
+let textAreaFunc = function (textarea) {
     let text = textarea.value;
     let formattedText = ``;
-    let paragraphs = userText.querySelectorAll('p');
+    let paragraphs = textarea.parentElement.querySelectorAll('p');
 
     if (paragraphs.length > 0) {
-        userText.removeChild(paragraphs[0]);
+        textarea.parentElement.removeChild(paragraphs[0]);
     }
 
     text.split(' ').forEach(word => {
@@ -104,5 +101,5 @@ textarea.addEventListener('input', () => {
     let newParagraph = document.createElement('p');
 
     newParagraph.textContent = formattedText;
-    userText.appendChild(newParagraph);
-});
+    textarea.parentElement.appendChild(newParagraph);
+}
