@@ -11,6 +11,17 @@ addButton.addEventListener('click', function() {
     counter++;
 });
 
-document.querySelector('.submit-button').onclick = function(){
-    alert("Вы нажали на кнопку");
-};
+document.querySelector('.submit-button').addEventListener('click',function(e){
+    let modal = document.getElementById('modal');
+    e.preventDefault();
+    //modal.classList.remove("modal");
+    modal.classList.add('modal_active');
+     //= 'modal modal_active';
+    //modal2.show();
+});
+
+document.querySelector('.modal__close-button').addEventListener('click', function(e){
+    let modal = document.getElementById('modal');
+    modal.classList.remove('modal_active');
+    
+})
