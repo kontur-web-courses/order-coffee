@@ -1,6 +1,7 @@
 let addButton = document.querySelector(".add-button");
 let bev = document.querySelector('.beverage');
 addRemoveEvent(bev);
+addOnChangeEvent(bev);
 let drinksCount = 0;
 
 addButton.addEventListener('click', () => {
@@ -9,6 +10,7 @@ addButton.addEventListener('click', () => {
     let element = elements[elements.length - 1];
     let newElement = element.cloneNode(true);
     addRemoveEvent(newElement);
+    addOnChangeEvent(newElement);
     updateNodeCounter(newElement, (int) => int + 1);
     let parent = document.querySelector('form')
     element.parentNode.insertBefore(newElement, element.nextSibling);
@@ -70,4 +72,23 @@ function updateNodeCounter(node, lambda) {
 
 function addRemoveEvent(newElement) {
     newElement.firstChild.nextSibling.nextSibling.nextSibling.firstChild.addEventListener('click', () => removeNodeEvent(newElement.firstChild.nextSibling.nextSibling.nextSibling.firstChild));
+}
+
+function updateText(node, text) {
+    text = text.replace('\n', '<br>')
+    text = text.replace('срочно', '<b>срочно</b>')
+    text = text.replace('быстрее', '<b>быстрее</b>')
+    text = text.replace('побыстрее', '<b>побыстрее</b>')
+    text = text.replace('скорее', '<b>скорее</b>')
+    text = text.replace('поскорее', '<b>поскорее</b>')
+    text = text.replace('очень нужно', '<b>очень нужно</b>')
+    node.innerHTML = '';
+    let element = document.createElement('div')
+    element.innerHTML = text;
+    node.parentNode.insertBefore(element, node.nextSibling)
+}
+
+function addOnChangeEvent(node) {
+    node.firstChild.nextSibling.lastChild.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.addEventListener('change', () => updateText(node.firstChild.nextSibling.lastChild.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling, node.firstChild.nextSibling.lastChild.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.value));
+
 }

@@ -7,6 +7,11 @@
     justify-content: space-between;
 }
 
+.anything-else {
+    display: flex;
+    flex-direction: column;
+}
+
 .remove-button {
     justify-self: flex-start;
 }
