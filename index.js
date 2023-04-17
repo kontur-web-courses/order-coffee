@@ -1,6 +1,8 @@
 let addButton = document.querySelector(".add-button");
 let bev = document.querySelector('.beverage');
 addRemoveEvent(bev);
+let drinksCount = 0;
+
 addButton.addEventListener('click', () => {
     let fieldSet = document.querySelector("form");
     let elements = document.querySelectorAll(".beverage");
@@ -25,8 +27,6 @@ function removeNodeEvent(button) {
 }
 
 
-let drinksCount = 0;
-
 const createDrinkButton = document.getElementById('submit-button');
 const modalWindow = document.getElementById('modal-window');
 const modalCloseButton = document.getElementById('modal-close');
@@ -35,6 +35,7 @@ const drinksCountInfoSpan = document.getElementById('drinks-count');
 
 
 function getDrinksInfoStr() {
+    let drinksCount = document.querySelectorAll('.beverage').length;
     let result = `${drinksCount} напит`;
 
     if (drinksCount % 10 === 1 && drinksCount !== 11)
@@ -61,6 +62,7 @@ function modalClose(event) {
 
 createDrinkButton.addEventListener('click', createModalWindow);
 modalCloseButton.addEventListener('click', modalClose)
+
 function updateNodeCounter(node, lambda) {
     node.firstChild.nextSibling.firstChild.textContent = node.firstChild.nextSibling.firstChild.textContent.slice(0, -1)
         + lambda(+node.firstChild.nextSibling.firstChild.textContent.at(-1));
