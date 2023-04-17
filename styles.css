@@ -57,6 +57,8 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 #modal {
+    width: 500px;
+    height: auto;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -64,6 +66,14 @@
     background-color: white;
     padding: 20px;
 }
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 
 .remove-beverage {
     float: right;

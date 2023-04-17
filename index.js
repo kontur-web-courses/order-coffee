@@ -6,12 +6,37 @@ const modalOverlay = document.getElementById("modal-overlay");
 const modal = document.getElementById("modal");
 const addBeverageButton = document.querySelector('.add-button');
 const beverage = document.querySelector('.beverage');
+const closeBtn = document.getElementById("close-btn");
+let differentValues = new Set([2, 3, 4]);
+let differentValues2 = new Set([12, 13, 14]);
+let differentValues3 = new Set([1]);
+
 
 doneBtn.addEventListener("click", (e) => {
-    console.log(modal, modalOverlay);
     modalOverlay.classList.remove("hidden");
     modal.classList.remove("hidden");
+    let p = document.getElementById('count_beverage');
+    console.log(p);
+    if (differentValues.has(curNumBeverages % 10) && !differentValues2.has(curNumBeverages % 100)) {
+        p.textContent = `Вы заказали ${curNumBeverages} напитка`;
+    }
+    else if (differentValues3.has(curNumBeverages % 10) && !differentValues2.has(curNumBeverages % 100)) {
+        p.textContent = `Вы заказали ${curNumBeverages} напиток`;
+    }
+    else {
+        p.textContent = `Вы заказали ${curNumBeverages} напитков`;
+    }
 });
+modalOverlay.addEventListener("click", function() {
+    modalOverlay.classList.add("hidden");
+    modal.classList.add("hidden");
+});
+
+closeBtn.addEventListener("click", function() {
+    modalOverlay.classList.add("hidden");
+    modal.classList.add("hidden");
+});
+
 addBeverageButton.addEventListener('click', addBeverage);
 initBeverage(beverage);
 
@@ -37,7 +62,7 @@ function removeBeverage(e) {
     if(curNumBeverages <= 1) {
         return;
     }
-    
+
     const bev = e.target.parentNode;
     bev.parentNode.removeChild(bev);
     curNumBeverages--;
