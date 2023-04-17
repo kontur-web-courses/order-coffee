@@ -1,6 +1,19 @@
 function createTable(tableData) {
     var table = document.createElement('table');
     var tableBody = document.createElement('tbody');
+    var tableHead = document.createElement('thead');
+
+    var row = document.createElement('tr');
+    var cell1 = document.createElement('td');
+    cell1.innerText = "Напиток"
+    row.append(cell1)
+    var cell2 = document.createElement('td');
+    cell2.innerText = "Молоко"
+    row.append(cell2)
+    var cell3 = document.createElement('td');
+    cell3.innerText = "Дополнительно"
+    row.append(cell3)
+    tableHead.append(row)
 
     tableData.forEach(function(rowData) {
         var row = document.createElement('tr');
@@ -14,6 +27,7 @@ function createTable(tableData) {
         tableBody.appendChild(row);
     });
 
+    table.append(tableHead);
     table.append(tableBody);
     document.querySelector(".modal-content").appendChild(table);
 }
