@@ -4,9 +4,9 @@ function declensionOfWord(num) {
     if (num % 10 === 1 && num % 100 !== 11) {
         result = `${num} ${word}`;
     } else if (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)) {
-        result = `${num} ${word}а`;
+        result = `${num} напитка`;
     } else {
-        result = `${num} ${word}ов`;
+        result = `${num} напитков`;
     }
     return `Вы заказали ${result}`;
 }
