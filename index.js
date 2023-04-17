@@ -61,7 +61,9 @@ function addBeverage() {
 }
 
 function renameRadioButtons(beverage, index) {
-
+    const buttons = beverage.querySelectorAll('input[type=radio]');
+    for(const btn of buttons)
+        btn.name = 'milk' + index;
 }
 
 function removeBeverage(e) {
