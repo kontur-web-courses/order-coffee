@@ -3,3 +3,6 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+modules.xml
+order-coffee.iml
+vcs.xml

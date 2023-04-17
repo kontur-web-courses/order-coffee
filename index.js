@@ -38,7 +38,6 @@ span.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-
 btn.addEventListener("click", (event) => {
         event.preventDefault();
         modal.style.display = "block";
@@ -75,3 +74,31 @@ let func = function () {
         document.getElementsByClassName('body')[0].append(tr);
     }
 }
+
+const textarea = document.getElementsByClassName('textarea')[0];
+const userText = document.getElementsByClassName('checkbox-field-textarea')[0];
+const keywords = ['срочно', 'быстрее', 'побыстрее', 'скорее', 'поскорее', 'очень нужно'];
+
+textarea.addEventListener('input', () => {
+    let text = textarea.value;
+    let formattedText = ``;
+    let paragraphs = userText.querySelectorAll('p');
+
+    if (paragraphs.length > 0) {
+        userText.removeChild(paragraphs[0]);
+    }
+
+    text.split(' ').forEach(word => {
+        if (keywords.includes(word.toLowerCase())) {
+            formattedText += ` <b>${word}</b> `;
+        } else {
+            formattedText += ` ${word} `;
+        }
+    });
+
+    let newParagraph = document.createElement('p');
+
+    newParagraph.textContent = formattedText;
+    userText.appendChild(newParagraph);
+});
+>>>>>>> ef0ae7c65fa2992d10c94f7195f11a8a48f1aabe
