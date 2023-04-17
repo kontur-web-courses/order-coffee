@@ -1,13 +1,28 @@
-const form = document.getElementsByClassName('beverage')[0].parentNode;
+const addButton = document.querySelector('.add-button');
 
-const addButton = document.getElementsByClassName('add-button')[0];
-let counter = 2;
-let forms = 1;
-addButton.addEventListener('click', () => {
-    const beverageNodeClone = document.getElementsByClassName('beverage')[0].cloneNode(true);
-    beverageNodeClone.querySelector('h4').innerText = `Напиток №${counter}`;
-    counter++;
-    forms++;
-    form.insertBefore(beverageNodeClone, addButton.parentNode)
-});
+let count = 1;
+addButton.onclick = function () {
+    const sets = document.querySelectorAll('fieldset');
+    const fieldset = sets[sets.length - 1];
+    const node = document.querySelector('fieldset').cloneNode(true);
 
+    const milks = node.querySelectorAll("*[name='milk']");
+    for (const milk of milks) {
+        milk.name = `milk${count}`;
+    }
+
+    for (const e of node.children) {
+        console.log(e.tagName)
+        if (e.className === 'beverage-count') {
+            e.textContent = `Напиток №${++count}`;
+        }
+
+        if (e.className === 'close-button') {
+            e.onclick = function () {
+                node.remove();
+            }
+        }
+    }
+
+    fieldset.after(node);
+}
