@@ -74,6 +74,28 @@
     cursor: pointer;
 }
 
+table {
+    margin-bottom: 30px;
+}
+
+td,
+th {
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th {
+    vertical-align: bottom;
+}
+table th,
+table td {
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
 
 .remove-beverage {
     float: right;
