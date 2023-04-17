@@ -11,6 +11,13 @@ button.addEventListener("click", () => {
     form.prepend(...forms);
 })
 
+function remove(el) {
+    let fieldset = el.parentNode.parentNode;
+    const index = forms.indexOf(fieldset);
+    forms.splice(index, 1);
+    form.removeChild(fieldset);
+}
+
 
 const openModalBtn = document.getElementById("open-modal-button");
 const modal = document.getElementById("modal");
