@@ -2,10 +2,19 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.remove-button {
+    justify-self: flex-start;
 }
 
 .beverage-count {
     margin: 0 0 15px;
+    align-self: flex-start;
+    justify-self: flex-start;
 }
 
 .field {
